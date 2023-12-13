@@ -127,12 +127,12 @@
 // EXERCICE 12
 
 let ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
-function fonction_tri(a, b) {
+function fonctionTri(a, b) {
     return a - b;
   }
 
 // Fonction de tri du tableau par ordre croissant
-ages.sort(fonction_tri);
+ages.sort(fonctionTri);
   console.log("Liste des âges triée :", ages);
 
 
@@ -178,3 +178,6 @@ console.log("Ecart entre le plus agé et le plus jeune :", resultatAge);
 // }
 
 // console.log("Je m'appelle " + personne.prenom + " " + personne.nom + " et j'ai " + personne.age + " ans")
+
+
+//bonne pratique JS : déclarer les constantes, puis les fonctions , puis le progamme
