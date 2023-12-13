@@ -127,11 +127,12 @@
 // EXERCICE 12
 
 let ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+function fonction_tri(a, b) {
+    return a - b;
+  }
 
 // Fonction de tri du tableau par ordre croissant
-ages.sort(function(a, b) {
-    return a - b;
-  });
+ages.sort(fonction_tri);
   console.log("Liste des âges triée :", ages);
 
 
@@ -140,15 +141,40 @@ function Mediane(ages) {
   ages.sort(function(a, b) {
     return a - b;
   });
-
   function calculMediane(ages) {
-    valeurMediane = ((ages[0] + ages[1] + ages[2] + ages[3] + ages[4]) + (ages[5] + ages[6] + ages[7] + ages[8] + ages[9]) / 2) 
+    valeurMediane = ((ages[4] + ages[5]) / 2) 
     return valeurMediane
 }
-
 return calculMediane(ages);
 }
 
 let resultatMediane = Mediane(ages);
-
 console.log("Médiane :", resultatMediane);
+
+
+function ecart(ages) {
+    // refaire le tri des ages dans l'ordre croissant pour faire la diff entre le plus agé et le plus jeune
+  ages.sort(function(a, b) {
+    return a - b;
+  });
+    // fonction de calcul de l'écart
+  function calculEcart(ages) {
+    valeurEcart = (ages[9] - ages[0])
+    return valeurEcart
+  }
+return calculEcart(ages)
+}
+
+let resultatAge = ecart(ages);
+console.log("Ecart entre le plus agé et le plus jeune :", resultatAge);
+
+
+// EXERCICE 13
+
+// let personne = {
+//     nom: "Doe",
+//     prenom: "John",
+//     age: "30 ans"
+// }
+
+// console.log("Je m'appelle " + personne.prenom + " " + personne.nom + " et j'ai " + personne.age + " ans")
