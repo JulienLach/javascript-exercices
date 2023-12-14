@@ -137,3 +137,34 @@
 
 
 // EXERCICE 10
+
+let arrayNotes = [];
+let saisieNote;
+let somme = 0;
+
+while (saisieNote !== "") {
+    saisieNote = prompt("Entrez une note d'examen ou laissez vide pour terminer :");
+
+    if (saisieNote === "") break;
+
+    let valeurNote = parseFloat(saisieNote);
+    if (valeurNote >= 0 && valeurNote <= 20) {
+        arrayNotes.push(valeurNote);
+        somme += valeurNote;
+    } else {
+        alert("Veuillez entrer un nombre valide entre 0 et 20.");
+    }
+
+}
+
+if (arrayNotes.length > 0) {
+    let moyenne = somme / arrayNotes.length;
+    if (moyenne >= 10) {
+        alert("Bravo ! vous êtes admis(e) en classe supérieure avec une moyenne de : " + moyenne);
+    } else {
+        alert("Malheureusement, vous devez reprendre votre année.");
+    }
+} else {
+    alert("Saisiez une note ");
+}
+
