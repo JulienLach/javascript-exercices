@@ -95,3 +95,72 @@ En résumé, la variable genreValid est utilisée pour contrôler la boucle. Ell
 
 //EXERCICE 5
 
+
+// let meteoValeur = window.prompt("Quel temps fait-il ? ");
+// let temperatureValeur = window.prompt("Quel température fait-il ? ");
+
+// function recommandationVetement(meteoValeur, temperatureValeur) {
+//   if (meteoValeur == "Il fait beau" && temperatureValeur == "Il fait chaud") {
+//     alert("Mettez un short");
+//   } else if (meteoValeur == "Il pleut" && temperatureValeur == "Il fait chaud") {
+//     alert("Prenez un parapluie");
+//   } else if (meteoValeur == "Il pleut" && temperatureValeur == "Il fait froid") {
+//     alert("Prenez un manteau à capuche");
+//   } else {
+//     alert("Je ne sais pas quoi vous conseiller.");
+//   }
+// }
+
+// recommandationVetement(meteoValeur, temperatureValeur);
+
+
+//EXERCICE 6
+
+// let intensiteSeisme = parseInt(window.prompt("Sur une échelle de 1 à 9, quelle a été selon vous l'intensité du sésisme ? "));
+
+// function calculIntensiteSeisme(intensiteSeisme) {
+//   if (intensiteSeisme >= 1 && intensiteSeisme <= 3 ) {
+//     alert("un séisme est à peine ressenti par les personnes");
+//   } else if (intensiteSeisme >= 4 && intensiteSeisme <= 5 ) {
+//     alert("Séisme nettement ressenti mais cause peu de dégâts");
+//   } else if (intensiteSeisme >= 6 && intensiteSeisme <= 7 ) {
+//     alert("Séisme destructeur")
+//   } else if (intensiteSeisme >= 8 && intensiteSeisme <= 9 ) {
+//     alert("Séisme ressenti sur sur longue distant en plus d'être destructeur");
+//   } else if (intensiteSeisme < 1 || intensiteSeisme > 9) {
+//     alert("Votre estimation est hors échelle");
+//   }
+//   else {
+//     alert("Veuillez saisir une valeur numérique");
+//   }
+// }
+
+// calculIntensiteSeisme(intensiteSeisme);
+
+
+//EXERCICE 7
+
+// let valeurPoids = parseFloat(window.prompt("Quel est votre poids en kg ? "));
+// let valeurTaille = parseInt(window.prompt("Quel est votre taille en cm ? "));
+
+// function calculImc(valeurTaille, valeurPoids) {
+
+//   let conversionTailleEnMetres = valeurTaille / 100;
+//   let valeurIMC = valeurPoids / (conversionTailleEnMetres * conversionTailleEnMetres)
+
+//   if (valeurIMC <= 16.5) {
+//     alert("Vous êtes en Dénutrition")
+//   } else if (valeurIMC > 16.5 && valeurIMC <= 18.5) {
+//     alert("Vous êtes maigre");
+//   } else if (valeurIMC > 18.5 && valeurIMC <= 25) {
+//     alert("Vous êtes de corpulance normale")
+//   } else if (valeurIMC > 25 && valeurIMC <= 30) {
+//     alert("Vous êtes en surpoids");
+//   } else if (valeurIMC > 30) {
+//     alert("Vous êtes en obésité");
+//   }
+//   else {
+//     alert("Les valeurs saisie ne sont pas correctes");
+//   }
+// }
+// calculImc(valeurTaille, valeurPoids);
