@@ -77,18 +77,18 @@
 // EXERCICE 5
 
 // Initialiser un tableau vide pour stocker les prénoms des amis
-// let listeAmis = [];
-// // Demander de saisir les prénoms des amis
-// while (prenomAmi = "stop") {
-//     let prenomAmi = window.prompt("Entrez le prénom de votre ami (ou tapez 'stop' pour terminer) :");
-//     // Vérifier si l'utilisateur a entré "stop" pour stopper la boucle
-//     if (prenomAmi == "stop") {
-//         break;
-//     }
-//     // Ajouter le prénom à la liste des amis
-//     listeAmis.push(prenomAmi);
-// }
-// console.log("Liste des prénoms de vos amis : " + listeAmis);
+let listeAmis = [];
+// Demander de saisir les prénoms des amis
+while (prenomAmi = "stop") {
+    let prenomAmi = window.prompt("Entrez le prénom de votre ami (ou tapez 'stop' pour terminer) :");
+    // Vérifier si l'utilisateur a entré "stop" pour stopper la boucle
+    if (prenomAmi == "stop") {
+        break;
+    }
+    // Ajouter le prénom à la liste des amis
+    listeAmis.push(prenomAmi);
+}
+console.log("Liste des prénoms de vos amis : " + listeAmis);
 
 
 // EXERCICE 6
@@ -130,10 +130,10 @@
 
 // EXERCICE 9
 
-// let tableau1 = [" ", "#", " ", "#", " ", "#", " ", "#", " ", "#"]
-// let tableau2 = ["#", " ", "#", " ", "#", " ", "#", " ", "#", " "]
+let tableau1 = [" ", "#", " ", "#", " ", "#", " ", "#", " ", "#"]
+let tableau2 = ["#", " ", "#", " ", "#", " ", "#", " ", "#", " "]
 
-// console.log(tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join(""))
+console.log(tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join(""))
 
 
 // EXERCICE 10
