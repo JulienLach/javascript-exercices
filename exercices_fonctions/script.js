@@ -38,8 +38,31 @@
 
 // EXERCICE 4
 
+// let chaine = window.prompt("Entre le mot : ");
+// let voyelles = ["a", "e", "i", "o", "u", "y"];
+// let compteurDeVoyelles = 0;
+
+// function calculNombreVoyelles(chaine) {
+//     for (let lettre of chaine) {
+//        if (voyelles.includes(lettre)) {
+//         compteurDeVoyelles++;
+//         console.log("ce mot possède : " + compteurDeVoyelles + " voyelles.");
+//        }
+//     }
+// }
+// calculNombreVoyelles(chaine);
 
 
-function calculNombreVoyelles(){
+// EXERCICE 5
+
+// let dateAComparer = (date1, date2) => `${date1} ${date2}`;
+
+
+// EXERCICE 6
+
+let nombresAleatoires = [];
+
+
+function randomNumbers() {
 
 };

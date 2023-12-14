@@ -130,41 +130,41 @@ console.log("Liste des prénoms de vos amis : " + listeAmis);
 
 // EXERCICE 9
 
-let tableau1 = [" ", "#", " ", "#", " ", "#", " ", "#", " ", "#"]
-let tableau2 = ["#", " ", "#", " ", "#", " ", "#", " ", "#", " "]
+// let tableau1 = [" ", "#", " ", "#", " ", "#", " ", "#", " ", "#"]
+// let tableau2 = ["#", " ", "#", " ", "#", " ", "#", " ", "#", " "]
 
-console.log(tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join(""))
+// console.log(tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join("") + "\n" + tableau1.join("") + "\n" + tableau2.join(""))
 
 
 // EXERCICE 10
 
-let arrayNotes = [];
-let saisieNote;
-let somme = 0;
+// let arrayNotes = [];
+// let saisieNote;
+// let somme = 0;
 
-while (saisieNote !== "") {
-    saisieNote = prompt("Entrez une note d'examen ou laissez vide pour terminer :");
+// while (saisieNote !== "") {
+//     saisieNote = prompt("Entrez une note d'examen ou laissez vide pour terminer :");
 
-    if (saisieNote === "") break;
+//     if (saisieNote === "") break;
 
-    let valeurNote = parseFloat(saisieNote);
-    if (valeurNote >= 0 && valeurNote <= 20) {
-        arrayNotes.push(valeurNote);
-        somme += valeurNote;
-    } else {
-        alert("Veuillez entrer un nombre valide entre 0 et 20.");
-    }
+//     let valeurNote = parseFloat(saisieNote);
+//     if (valeurNote >= 0 && valeurNote <= 20) {
+//         arrayNotes.push(valeurNote);
+//         somme += valeurNote;
+//     } else {
+//         alert("Veuillez entrer un nombre valide entre 0 et 20.");
+//     }
 
-}
+// }
 
-if (arrayNotes.length > 0) {
-    let moyenne = somme / arrayNotes.length;
-    if (moyenne >= 10) {
-        alert("Bravo ! vous êtes admis(e) en classe supérieure avec une moyenne de : " + moyenne);
-    } else {
-        alert("Malheureusement, vous devez reprendre votre année.");
-    }
-} else {
-    alert("Saisiez une note ");
-}
+// if (arrayNotes.length > 0) {
+//     let moyenne = somme / arrayNotes.length;
+//     if (moyenne >= 10) {
+//         alert("Bravo ! vous êtes admis(e) en classe supérieure avec une moyenne de : " + moyenne);
+//     } else {
+//         alert("Malheureusement, vous devez reprendre votre année.");
+//     }
+// } else {
+//     alert("Saisiez une note ");
+// }
 
