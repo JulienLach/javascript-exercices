@@ -96,22 +96,22 @@ En résumé, la variable genreValid est utilisée pour contrôler la boucle. Ell
 //EXERCICE 5
 
 
-// let meteoValeur = window.prompt("Quel temps fait-il ? ");
-// let temperatureValeur = window.prompt("Quel température fait-il ? ");
+let meteoValeur = window.prompt("Quel temps fait-il ? ");
+let temperatureValeur = window.prompt("Quel température fait-il ? ");
 
-// function recommandationVetement(meteoValeur, temperatureValeur) {
-//   if (meteoValeur == "Il fait beau" && temperatureValeur == "Il fait chaud") {
-//     alert("Mettez un short");
-//   } else if (meteoValeur == "Il pleut" && temperatureValeur == "Il fait chaud") {
-//     alert("Prenez un parapluie");
-//   } else if (meteoValeur == "Il pleut" && temperatureValeur == "Il fait froid") {
-//     alert("Prenez un manteau à capuche");
-//   } else {
-//     alert("Je ne sais pas quoi vous conseiller.");
-//   }
-// }
+function recommandationVetement(meteoValeur, temperatureValeur) {
+  if (meteoValeur == "Il fait beau" && temperatureValeur == "Il fait chaud") {
+    alert("Mettez un short");
+  } else if (meteoValeur == "Il pleut" && temperatureValeur == "Il fait chaud") {
+    alert("Prenez un parapluie");
+  } else if (meteoValeur == "Il pleut" && temperatureValeur == "Il fait froid") {
+    alert("Prenez un manteau à capuche");
+  } else {
+    alert("Je ne sais pas quoi vous conseiller.");
+  }
+}
 
-// recommandationVetement(meteoValeur, temperatureValeur);
+recommandationVetement(meteoValeur, temperatureValeur);
 
 
 //EXERCICE 6
@@ -140,27 +140,27 @@ En résumé, la variable genreValid est utilisée pour contrôler la boucle. Ell
 
 //EXERCICE 7
 
-// let valeurPoids = parseFloat(window.prompt("Quel est votre poids en kg ? "));
-// let valeurTaille = parseInt(window.prompt("Quel est votre taille en cm ? "));
+let valeurPoids = parseFloat(window.prompt("Quel est votre poids en kg ? "));
+let valeurTaille = parseInt(window.prompt("Quel est votre taille en cm ? "));
 
-// function calculImc(valeurTaille, valeurPoids) {
+function calculImc(valeurTaille, valeurPoids) {
 
-//   let conversionTailleEnMetres = valeurTaille / 100;
-//   let valeurIMC = valeurPoids / (conversionTailleEnMetres * conversionTailleEnMetres)
+  let conversionTailleEnMetres = valeurTaille / 100;
+  let valeurIMC = valeurPoids / (conversionTailleEnMetres * conversionTailleEnMetres)
 
-//   if (valeurIMC <= 16.5) {
-//     alert("Vous êtes en Dénutrition")
-//   } else if (valeurIMC > 16.5 && valeurIMC <= 18.5) {
-//     alert("Vous êtes maigre");
-//   } else if (valeurIMC > 18.5 && valeurIMC <= 25) {
-//     alert("Vous êtes de corpulance normale")
-//   } else if (valeurIMC > 25 && valeurIMC <= 30) {
-//     alert("Vous êtes en surpoids");
-//   } else if (valeurIMC > 30) {
-//     alert("Vous êtes en obésité");
-//   }
-//   else {
-//     alert("Les valeurs saisie ne sont pas correctes");
-//   }
-// }
-// calculImc(valeurTaille, valeurPoids);
+  if (valeurIMC <= 16.5) {
+    alert("Vous êtes en Dénutrition")
+  } else if (valeurIMC > 16.5 && valeurIMC <= 18.5) {
+    alert("Vous êtes maigre");
+  } else if (valeurIMC > 18.5 && valeurIMC <= 25) {
+    alert("Vous êtes de corpulance normale")
+  } else if (valeurIMC > 25 && valeurIMC <= 30) {
+    alert("Vous êtes en surpoids");
+  } else if (valeurIMC > 30) {
+    alert("Vous êtes en obésité");
+  }
+  else {
+    alert("Les valeurs saisie ne sont pas correctes");
+  }
+}
+calculImc(valeurTaille, valeurPoids);
