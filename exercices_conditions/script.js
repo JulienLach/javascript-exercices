@@ -116,7 +116,7 @@ recommandationVetement(meteoValeur, temperatureValeur);
 
 //EXERCICE 6
 
-// let intensiteSeisme = parseInt(window.prompt("Sur une échelle de 1 à 9, quelle a été selon vous l'intensité du sésisme ? "));
+// let intensiteSeisme = parseFloat(window.prompt("Sur une échelle de 1 à 9, quelle a été selon vous l'intensité du sésisme ? "));
 
 // function calculIntensiteSeisme(intensiteSeisme) {
 //   if (intensiteSeisme >= 1 && intensiteSeisme <= 3 ) {
