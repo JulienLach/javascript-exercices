@@ -1,3 +1,23 @@
+// EXERCICE 2 (PARTIE 1) https://waytolearnx.com/2020/04/exercice-javascript-corrige-partie-1.html#comments
+//Écrivez une fonction qui prend un nombre entier de minutes et le convertit en secondes.
+
+// function minuteToSecond(x) {
+//     return  x * 60;
+//   }
+// console.log(minuteToSecond(4));
+
+
+// EXERCICE 3
+// Créez une fonction qui prend un nombre en argument, incrémente le nombre +1 et renvoie le résultat.
+
+function incrementation(x) {
+    return ++x;
+}
+console.log(incrementation(2))
+
+
+
+
 /*
 EXERCICE BONUS CHRISTOPHE 1
 
@@ -19,17 +39,17 @@ chercher dans des algorithme de propagation d'erreur, ou (et là vous oubliez) c
 astuce 2 : c'est une fonction de génération de rythmes euclidiens
 */
 
-let nb = 7;
-let max = 12;
+// let nb = 7;
+// let max = 12;
 
-function chaine(nb, max) {
-    while (nb < max) {
-        nb = "#"
-    }
+// function chaine(nb, max) {
+//     while (nb < max) {
+        
+//     }
 
 
-    return console.log(chaine(nb, max))
-}
+//     return console.log(chaine(nb, max))
+// }
 
 // faire rentrer 7 # dans une chaine de 12 de longueur, 
 
@@ -37,7 +57,7 @@ function chaine(nb, max) {
 
 
 
-// EXERCICE BONUS 2
+// EXERCICE BONUS 2 (PARTIE 9) VOIR https://waytolearnx.com/2020/04/exercice-javascript-corrige-partie-1.html#comments
 
 /*Un palindrome est un mot qui s’écrit de la même manière après l’inversion de ce dernier. 
 ‘ada’ est un palindrome. Écrivez une méthode qui vérifie si une chaîne est un palindrome.
@@ -137,12 +157,64 @@ Créez une fonction qui prend une chaîne et renvoie une chaîne avec des
 espaces entre tous les caractères.
 */
 
-function ajoutEspace(chaine) {
-    // Use the split and join methods to insert spaces between characters
-    chaine = chaine.split("").join("   ")
-    return chaine;
-}
+// function ajoutEspace(chaine) {
+//     // Use the split and join methods to insert spaces between characters
+//     chaine = chaine.split("").join("   ")
+//     return chaine;
+// }
 
-console.log(ajoutEspace("waytolearnx"));
-console.log(ajoutEspace("Hello BoB"));
-console.log(ajoutEspace("Thank you"));
+// console.log(ajoutEspace("waytolearnx"));
+// console.log(ajoutEspace("Hello BoB"));
+// console.log(ajoutEspace("Thank you"));
+
+
+
+
+
+/* 
+EXERCICE 6:
+Vous avez un tableau de boissons, chaque boisson étant un objet avec deux 
+propriétés: nom et prix. Créez une fonction qui a le tableau des boissons comme argument et retournez 
+l’objet boissons trié par prix dans l’ordre croissant.
+*/
+
+// créer le tableau des boissons
+// boissons = [
+//     {nom: "citron", prix: 50},
+//     {nom: "menthe", prix: 35},
+//     {nom: "fraise", prix: 5}
+//   ]
+  
+//   function sortByPrice(boissons) {
+//     return boissons.sort(function(a, b) {
+//         return a.prix - b.prix;
+//     });
+// }
+// console.log(sortByPrice(boissons));
+
+
+
+/* 
+EXERCICE 7:
+Un nombre uniforme est un nombre positif composé du même chiffre.
+Créez une fonction qui prend un entier et retourne s’il s’agit d’un nombre uniforme ou non.
+*/
+
+// function isUniforme(nombre) {
+//     //convertir le nombre en string pour pouvoir vérifier chaque element
+//    nombreString = nombre.toString();
+
+//    // Vérifier si tous les caractères de la chaîne sont égaux au premier caractère
+//    const premierChiffre = nombreString[0];
+//    return nombreString.split('').every(chiffre => chiffre === premierChiffre);
+// }
+
+// console.log(isUniforme(444));
+// console.log(isUniforme(-444));
+// console.log(isUniforme(0));
+
+
+
+
+
+
