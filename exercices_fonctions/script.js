@@ -58,11 +58,46 @@
 // let dateAComparer = (date1, date2) => `${date1} ${date2}`;
 
 
+
+
 // EXERCICE 6
 
-let nombresAleatoires = [];
+// function tirageAleatoire() {
+//     // déclarer le tableau vide à remplir
+//     let listeNumerosTires = [];
+//     // Générer 7 nombres aléatoires uniques entre 0 et 99
+//     while (listeNumerosTires.length < 7) { // tant que le tableau n'exède pas 7 chiffre, continuer la boucle
+//         let numeroAleatoire = Math.random() * 100; //La fonction Math.random() renvoie un nombre flottant pseudo-aléatoire compris dans l'intervalle [0, 1[ (ce qui signifie que 0 est compris dans l'intervalle mais que 1 en est exclu) donc on fait * 100 pour avoir des nombres entre 0 et 100
+//         listeNumerosTires.push(numeroAleatoire);
+//     }
+//     return listeNumerosTires;
+// }
+
+// // stocker le résultat de la fonction à une variable
+// let resultatTirage = tirageAleatoire();
+// // Afficher le résultat dans la console
+// console.log("Résultat du tirage:", resultatTirage);
 
 
-function randomNumbers() {
 
+
+
+// EXERCICE 7
+
+function calculFactoriel(nombre) {
+    let factorielDuNombre = 1 // initialement définie à 1, car le produit de tout nombre par 1 reste le nombre lui-même.
+    
+    for (x = 1; x <= nombre; x++) { // x prend la valeur 1,2,3,4
+        factorielDuNombre *= x; //tous les nombres inférieur à 4 multipliés entre eux sauf 0
+    }
+    return factorielDuNombre;
 };
+console.log(calculFactoriel(4));
+
+
+
+// EXERCICE 8
+
+
+
+// EXERCICE 9
