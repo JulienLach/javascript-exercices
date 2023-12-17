@@ -7,61 +7,65 @@ b) Les afficher dans la console comme ci-après : « 2 est un nombre pair et
 un nombre premier ».
 */
 
-for (let i=0; i<100;i++){
+for (let i = 0; i < 100; i++) {
     let pair;
-    let premier=true;
-    if (i%2==0) pair=true;
-    else pair=false;
+    let premier = true;
+    if (i % 2 == 0) pair = true;
+    else pair = false;
 
     // boucle for pour tester si premier
-    for(j=2; j<i; j++){
-        premier=premier && (i%j!=0); // avec cumul
-        if (i%j==0) premier=false; // alternative au cumul
+    for (j = 2; j < i; j++) {
+        premier = premier && (i % j != 0); // avec cumul
+        if (i % j == 0) premier = false; // alternative au cumul
     }
 
     //alternative à la boucle for pour tester premier
-    let j=2;
-    let fin=i-1;
-    while (j<fin && !premier) {
-        premier=premier && (i%j!=0);
-        if (premier) fin=i/j;
+    let j = 2;
+    let fin = i - 1;
+    while (j < fin && !premier) {
+        premier = premier && (i % j != 0);
+        if (premier) fin = i / j;
         j++;
     }
 
-    console.log("le nombre "+i+" est "+(pair?"pair":"impair")+" et est "+(premier?"":"non")+" premier");
+    console.log("le nombre " + i + " est " + (pair ? "pair" : "impair") + " et est " + (premier ? "" : "non") + " premier");
 }
 
+
+
 // exercice 4 avec des fonctions
-function estPair(x){
-    return (x%2==0);
+function estPair(x) {
+    return (x % 2 == 0);
 }
 
 function estPremier(x) {
-    let j=2;
-    let fin=x-1;
-    let premier=true;
-    while (j<fin && !premier) {
-        premier=premier && (x%j!=0);
-        if (premier) fin=x/j;
+    let j = 2;
+    let fin = x - 1;
+    let premier = true;
+    while (j < fin && !premier) {
+        premier = premier && (x % j != 0);
+        if (premier) fin = x / j;
         j++;
     }
     return premier;
 }
 
-for (let i=0; i<100;i++){
-    console.log("le nombre "+i+" est "+(estPair(i)?"pair":"impair")+" et est "+(estPremier(i)?"":"non")+" premier");
+for (let i = 0; i < 100; i++) {
+    console.log("le nombre " + i + " est " + (estPair(i) ? "pair" : "impair") + " et est " + (estPremier(i) ? "" : "non") + " premier");
 }
 
 // precision exercice 5
-let tab=[];
-let texte="jean,pierre,paul,marc,louis,charles,cébon";
-tab=texte.split(",");
+let tab = [];
+let texte = "jean,pierre,paul,marc,louis,charles,cébon";
+tab = texte.split(",");
 console.log(tab.join(" "));
 //  remplacer tous les "a" par un "e" dans chaque element du tableau tab
-tab=tab.join(",").replaceAll("a","e").split(",");
+tab = tab.join(",").replaceAll("a", "e").split(",");
 
 //exercice 6 mais triché
 console.log(tab.join("\n"));
+
+
 
 /*
 Exercice 9
@@ -69,21 +73,21 @@ Exercice 9
 utilisant une séquence d’échappement nouvelle ligne pour séparer les lignes
 */
 
-let taille=8; //à remplir par l'utilisateur
-let blanche=true;
-let echiquier="";
-for(let y=0; y<taille;y++) {
-    let ligne="";
-    if (blanche) ligne=" ";
-    else ligne="#";
-    for (let x=1; x<taille;x++) {
-        let car=ligne[ligne.length-1];
-        if (car=="#") car=" ";
-        else car="#";
-        ligne=ligne+car;
+let taille = 8; //à remplir par l'utilisateur
+let echiquier = "";
+let blanche = true;
+for (let y = 0; y < taille; y++) {
+    let ligne = "";
+    if (blanche) ligne = " ";
+    else ligne = "#";
+    for (let x = 1; x < taille; x++) {
+        let car = ligne[ligne.length - 1];
+        if (car == "#") car = " ";
+        else car = "#";
+        ligne = ligne + car;
     }
-    blanche=!blanche;
-    echiquier=echiquier+ligne+"\n";
+    blanche = !blanche;
+    echiquier = echiquier + ligne + "\n";
 }
 
 /*
@@ -96,45 +100,54 @@ vous êtes admis(e) en classe supérieure avec une moyenne de : ‘‘moyenne’
 Sinon affichez-lui le message «Malheureusement, vous devez reprendre votre
 année ».
 
+
+
 Exercice 11
 Reprenez l’exercice précédent, indiquez à l’étudiant le nombre de matière à
 rattraper en cas d’échec.
 */
 
-let notes=[];
+let notes = [];
 do {
-    let note=parseFloat(prompt("saisissez une note "));
+    let note = parseFloat(prompt("saisissez une note "));
     notes.push(note);
-} while(!isNaN(note));
+} while (!isNaN(note));
 notes.pop();
 
 //moyenne cas 1 avec une boucle
-let somme=0;
-let nombre=notes.length;
-while(notes.length>0){
-    somme=somme+notes.shift();
+let somme = 0;
+let nombre = notes.length;
+while (notes.length > 0) {
+    somme = somme + notes.shift();
 }
-let moyenne=somme/nombre;
+let moyenne = somme / nombre;
 
 // moyenne cas 2 avec reduce
-function ajoute(cumul,element) {
-    return cumul+element;
+function ajoute(cumul, element) {
+    return cumul + element;
 }
-let nombre=notes.length;
-let somme=notes.reduce(ajoute,0);
+let nombre = notes.length;
+let somme = notes.reduce(ajoute, 0);
 // let somme=notes.reduce(function(cumul,element){return cumul+element;},0);
 // let somme=notes.reduce((cumul,element) => cumul+element;,0);
-let moyenne=somme/nombre;
+let moyenne = somme / nombre;
 
 //suite de l'exercice
-console.log ("bla bla bla");
+console.log("bla bla bla");
 
-for (let i=0; i<notes.length; i++) {
-    if (notes[i]>=10) notes.splice(i,1);
+for (let i = 0; i < notes.length; i++) {
+    if (notes[i] >= 10) notes.splice(i, 1);
 }
-console.log(notes.length+" matieres à rattraper");
+console.log(notes.length + " matieres à rattraper");
+
+
+
+
+
 
 // FONCTIONS
+
+
 /*
 Exercice 4
 Écrire une fonction qui prend en paramètre une chaîne qui renvoie le nombre
@@ -145,10 +158,12 @@ dans la console.
 */
 
 function voyelles(texte) {
-    return texte.replaceAll(/[^aeiouy]/g,"").length;
+    return texte.replaceAll(/[^aeiouy]/g, "").length;
 }
-// regexp email : [a-z0-9\.\-_]+@([a-z0-9]+\.[a-z]+)     $1
+// regexp email : [a-z0-9\.\-_]+@([a-z0-9]+\.[a-z]+)
 // code postal : [0-9]{5}
+
+
 
 /*Exercice 5
 Écrire une fonction fléchée qui prend en paramètres deux dates et qui renvoie
@@ -156,16 +171,16 @@ le nombre d’années bissextiles entre les deux.
 Utiliser la fonction avec les arguments de votre choix et afficher le résultat
 dans la console*/
 
-let nbBisextiles= (a,b) => {
-    let quatre=0;
-    let cent=0;
-    let start=Math.min(a.getFullYear(),b.getFullYear());
-    let end=Math.max(a.getFullYear(),b.getFullYear());
-    for (let i=start; i<end; i++) {
-        if (i%4==0) quatre++;
-        if (i%100==0) cent++;
+let nbBisextiles = (a, b) => {
+    let quatre = 0;
+    let cent = 0;
+    let start = Math.min(a.getFullYear(), b.getFullYear());
+    let end = Math.max(a.getFullYear(), b.getFullYear());
+    for (let i = start; i < end; i++) {
+        if (i % 4 == 0) quatre++;
+        if (i % 100 == 0) cent++;
     }
-    return quatre-cent;
+    return quatre - cent;
 }
 
 /*
@@ -175,16 +190,18 @@ entre 0 et 99. Tous les numéros doivent être unique.
 Afficher le résultat du tirage dans la console.
 */
 
-function tirage(){
-    let tab=[];
-    let rand=Math.trunc(Math.random()*100);
+function tirage() {
+    let tab = [];
+    let rand = Math.trunc(Math.random() * 100);
     do {
-        while (tab.indexOf(rand)!=-1)
-            rand=Math.trunc(Math.random()*100);
+        while (tab.indexOf(rand) != -1)
+            rand = Math.trunc(Math.random() * 100);
         tab.push(rand);
-    } while (tab.length<7);
+    } while (tab.length < 7);
     return tab;
 }
+
+
 
 /*
 Exercice 8
@@ -203,23 +220,23 @@ caractères`;
 }
 */
 
-let getStringLength=(string)=>{
+let getStringLength = (string) => {
     let stringLength;
-    if(string.length === 1){
-    stringLength = 'La chaîne contient qu\'un seul caractère';
+    if (string.length === 1) {
+        stringLength = 'La chaîne contient qu\'un seul caractère';
     } else {
-    stringLength = `La chaîne contient ${string.length} caractères`;
+        stringLength = `La chaîne contient ${string.length} caractères`;
     }
     return stringLength;
-   }
+}
 
-   /*
-   Exercice 9
+/*
+Exercice 9
 Traduire cette fonction fléchée en fonction nommée.
 var getMassage = (name) => `Bonjour, ${name} ! Comment vas-tu ?`;
 */
 
-function getMassage(name) {return `Bonjour, ${name} ! Comment vas-tu ?`;}
+function getMassage(name) { return `Bonjour, ${name} ! Comment vas-tu ?`; }
 
 /*
 exercice bonus (pas de chance en ce vendredi)
@@ -239,5 +256,4 @@ valide :
 5,13 -> #..#.#..#.#..
 
 astuce : chercher dans des algorithme de propagation d'erreur, ou (et là vous oubliez) calcul euclidien du plus grand denominateur commun
-astuce 2 : c'est une fonction de génération de rythmes euclidiens
-
+*/
