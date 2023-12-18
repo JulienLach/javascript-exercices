@@ -22,8 +22,7 @@ elementsListe.forEach(function(li) {
 // EXERCICE 3
 let liste = document.querySelectorAll("li")
 for (let i = 0; i < liste.length; i++) {
-    console.log(liste[i].textContent)
-    
+    // console.log(liste[i].textContent)
     let content = liste[i].textContent
     liste[i].textContent = content + " (" + (i + 1) + ")";
 }
