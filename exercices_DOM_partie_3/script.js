@@ -68,21 +68,9 @@
 
 //EXERCICE 7
 // On récupère la valeur du jour sélectionné 
-let selectedDay = document.getElementById("dayOfWeek").value;
-
+let selectedDay = document.getElementById("dayOfWeek");
 // Écouteur d'événement "change" pour le changement de sélection du jour
-document.getElementById("dayOfWeek").addEventListener("change", function() {
+selectedDay.addEventListener("change", function() {
 console.log("Jour choisi: " + this.value);
 });
 
-
-
-// EXERCICE 7 AUTRE SOLUTION
-
-let listeDesJours = document.getElementById("dayOfWeek");
-let jourSelectionne = listeDesJours.value;
-// Nouvelle variable qui prend la valeur de la listeDesJours
-
-listeDesJours.addEventListener("change", function() {
-    console.log("Jour sélectionné : " + this.value);
-});

@@ -39,14 +39,27 @@ Si l’élément n’existe pas, retournez -1.*/
 // EXERCICE 3
 // Écrivez une fonction pour vérifier si un tableau contient un nombre particulier.
 
-function nombreExiste(tableau, valeur) {
-    for (let nombre = 0; nombre < tableau.length; nombre++) {
-        if (tableau[nombre] === valeur) {
-            return true
-        }
-    }   return false
-}
-console.log(nombreExiste([6, 7, 8], 7));
-console.log(nombreExiste([1, 2, 3], 5));
-console.log(nombreExiste([], 0));
+// function nombreExiste(tableau, valeur) {
+//     for (let nombre = 0; nombre < tableau.length; nombre++) {
+//         if (tableau[nombre] === valeur) {
+//             return true
+//         }
+//     }   return false
+// }
+// console.log(nombreExiste([6, 7, 8], 7));
+// console.log(nombreExiste([1, 2, 3], 5));
+// console.log(nombreExiste([], 0));
 
+
+// EXERCICE 4
+/*
+Créez une fonction qui prend une chaîne (un nom aléatoire). 
+Si le dernier caractère du nom est un « s », retournez TRUE, sinon retournez FALSE.
+*/
+
+function verifS(chaine) {
+}
+console.log(verifS("Thomas"));
+console.log(verifS("Ali"));
+console.log(verifS("Alex"));
+console.log(verifS("Alvis"));
