@@ -20,11 +20,33 @@
 /* Créez une fonction qui trouve l’index d’un élément donné. 
 Si l’élément n’existe pas, retournez -1.*/
 
-function trouverIndexValeur(tableau, valeur) {
-    for (valeur in tableau) {
-        return valeur
-    }
+// function trouverLindexValeur(tableau, valeur) {
+//     //déclarer la fonction avec paramètres tableau de chiffre et valeur donnée
+//     for(let index = 0; index < tableau.length; index++) {
+//         //déclarer la variable index que l'on cherche condition de départ, condition de fin, incrémentation
+//         if(tableau[index] == valeur)
+//         //si l'index du tableau et égale à la valeur -> fin de la boucle
+//         return index;
+//         // sinon retourne -1
+//     }
+//     return -1;
+// }
+// console.log(trouverLindexValeur([2, 7, 1], 7));
+// console.log(trouverLindexValeur([6, 9, 5], 6));
+// console.log(trouverLindexValeur([6, 7, 8], 9));
+
+
+// EXERCICE 3
+// Écrivez une fonction pour vérifier si un tableau contient un nombre particulier.
+
+function nombreExiste(tableau, valeur) {
+    for (let nombre = 0; nombre < tableau.length; nombre++) {
+        if (tableau[nombre] === valeur) {
+            return true
+        }
+    }   return false
 }
-console.log(trouverIndexValeur([2, 7, 1], 7));
-console.log(trouverIndexValeur([6, 9, 5], 6));
-console.log(trouverIndexValeur([6, 7, 8], 9));
+console.log(nombreExiste([6, 7, 8], 7));
+console.log(nombreExiste([1, 2, 3], 5));
+console.log(nombreExiste([], 0));
+
