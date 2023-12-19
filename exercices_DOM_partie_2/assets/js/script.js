@@ -30,3 +30,27 @@ function addToList() {
     //vider la valeur de l'input à la fin de la fonction
 };
 
+
+// CORRECTION CHRISTOPHE
+
+// let liste=document.querySelector("ul");
+// let input=document.querySelector("input");
+
+// function addToList() {
+//     let li=document.createElement("li");
+//     let span=document.createElement("span");
+//     let button=document.createElement("button");
+//     span.textContent=input.value;
+//     button.onclick=removeToList; // l'attribut onclick attend une fonction
+//     button.textContent="🗑️";
+//     li.appendChild(span);
+//     li.appendChild(button);
+//     liste.appendChild(li);
+//     input.value=""; // on efface le input après ajout
+// }
+
+// function removeToList() {
+//     let span=this.parentNode;
+//     let li=span.parentNode;
+//     li.removeChild(span);
+// }

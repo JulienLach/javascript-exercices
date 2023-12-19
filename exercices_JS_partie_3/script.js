@@ -128,17 +128,17 @@ pas le nombre total d’animaux.
 */
 
 
-function nbrsPattes(poulets, vaches, chevaux) {
-    return ((poulets*2)+(vaches*4)+(chevaux*4));
-}
-console.log(nbrsPattes(1, 4, 2));
-console.log(nbrsPattes(2, 2, 2));
-console.log(nbrsPattes(2, 0, 3));
+// function nbrsPattes(poulets, vaches, chevaux) {
+//     return ((poulets*2)+(vaches*4)+(chevaux*4));
+// }
+// console.log(nbrsPattes(1, 4, 2));
+// console.log(nbrsPattes(2, 2, 2));
+// console.log(nbrsPattes(2, 0, 3));
 
 
-// EXERCICE 6
+// EXERCICE 9
 /*
-Exercice 9: Nombre paire ou impaire
+Nombre paire ou impaire
 Créez une fonction qui prend un nombre comme argument et renvoie « pair » 
 pour les nombres pairs et « impair » pour les nombres impairs.
 */
@@ -153,11 +153,9 @@ pour les nombres pairs et « impair » pour les nombres impairs.
 // }
 
 // Exemple avec fonction ternaire 
-function nombrePairImpair(number) {
-    return number % 2 ? 'impaire' : 'paire';
-  }
-
-
-console.log(nombrePairImpair(2));
-console.log(nombrePairImpair(7));
-console.log(nombrePairImpair(22));
+// function nombrePairImpair(number) {
+//     return number % 2 ? 'impaire' : 'paire';
+//   }
+// console.log(nombrePairImpair(2));
+// console.log(nombrePairImpair(7));
+// console.log(nombrePairImpair(22));

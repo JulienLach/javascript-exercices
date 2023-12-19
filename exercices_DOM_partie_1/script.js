@@ -20,12 +20,10 @@ elementsListe.forEach(function(li) {
 
 
 // EXERCICE 3
-let liste = document.querySelectorAll("li")
-for (let i = 0; i < liste.length; i++) {
-    // console.log(liste[i].textContent)
-    let content = liste[i].textContent
-    liste[i].textContent = content + " (" + (i + 1) + ")";
-}
+//Correction christohpe
+for(let i=0; i<tabLi.length; i++) {
+    tabLi[i].innerHTML+=" ("+i+")";
+};
 
 // EXERCICE 4
 
@@ -46,3 +44,55 @@ spanText.style.fontWeight = "bold";
 
 let JavaListe = document.getElementById("Java");
 JavaListe.style.color = "red";
+
+
+
+
+///////////////// CORRECTION CHRISTOPHE
+
+//    //exercice 1
+//    let textToDisplay="Les Sélecteurs";
+//    let h1=document.getElementById("title");
+
+//    h1.textContent=textToDisplay;
+
+//    //exercice 2
+//    console.log("balise h1:");
+//    console.log(h1.textContent);
+//    console.log("classe dercription :");
+//    console.log(document.querySelector(".description").textContent);
+//    let tabLi=document.getElementsByTagName("li");
+//    for(let i=0; i<tabLi.length; i++) {
+//        console.log(tabLi[i].innerHTML);
+//    };
+
+//    //exercice 3
+//    for(let i=0; i<tabLi.length; i++) {
+//        tabLi[i].innerHTML+=" ("+i+")";
+//    };
+
+//    //exercice 4
+//    let source = document.querySelector("img").src;
+//    let champ = document.getElementById("src_image");
+//    champ.value=source;
+
+//    //exercice 5
+//    var style = document.createElement('style');
+//    style.type = 'text/css';
+//    style.innerHTML = '.important { font-weight: bold; }';
+//    document.querySelector('head').appendChild(style);
+
+//    document.querySelector("span").classList.add("important");
+
+//    //exercice 6
+//    var style = document.createElement('style');
+//    style.type = 'text/css';
+//    style.innerHTML = '.red { color: red; }';
+//    document.querySelector('head').appendChild(style);
+
+//    for(let i=0; i<tabLi.length; i++) {
+//        let langage=(tabLi[i].innerHTML.split(" "))[0];
+//        if (langage=="Javascript") {
+//            tabLi[i].classList.add("red");
+//        }
+//    };
