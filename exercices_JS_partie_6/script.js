@@ -53,19 +53,19 @@
 Créez une fonction récursive qui renvoie le total de tous les nombres impairs 
 jusqu’à n(inclus). 'nombre' sera donné comme un nombre impair.
 */
-function sommeDesNombresImpair(nombre) {
-    // Cas de base : si nombre est égal à 1, renvoyer 1
-    if (nombre === 1) {
-        return 1;
-    } else {
-        // Appel récursif en soustrayant 2 à nombre et ajoutant nombre
-        // pour inclure le nombre actuel dans la somme
-        return nombre + sommeDesNombresImpair(nombre - 2);
-    }
-}
-console.log(sommeDesNombresImpair(3));  // Résultat attendu : 1 + 3 = 4
-console.log(sommeDesNombresImpair(7));  // Résultat attendu : 1 + 3 + 5 + 7 = 16
-console.log(sommeDesNombresImpair(59)); // Résultat attendu : Somme de tous les impairs jusqu'à 59
+// function sommeDesNombresImpair(nombre) {
+//     // Cas de base : si nombre est égal à 1, renvoyer 1
+//     if (nombre === 1) {
+//         return 1;
+//     } else {
+//         // Appel récursif en soustrayant 2 à nombre et ajoutant nombre
+//         // pour inclure le nombre actuel dans la somme
+//         return nombre + sommeDesNombresImpair(nombre - 2);
+//     }
+// }
+// console.log(sommeDesNombresImpair(3));  // Résultat attendu : 1 + 3 = 4
+// console.log(sommeDesNombresImpair(7));  // Résultat attendu : 1 + 3 + 5 + 7 = 16
+// console.log(sommeDesNombresImpair(59)); // Résultat attendu : Somme de tous les impairs jusqu'à 59
 
 
 
@@ -74,9 +74,59 @@ console.log(sommeDesNombresImpair(59)); // Résultat attendu : Somme de tous les
 Créez une fonction qui renvoie TRUE si la chaîne passée en 
 paramètre ne contient que des lettres majuscules ou minuscules.
 */
-function verifCase(chaine) {
-    
+// function verifCase(chaine) {
+//     return chaine === chaine.toUpperCase() || chaine === chaine.toLowerCase();
+// }
+// console.log(verifCase("WayToLearnX"));
+// console.log(verifCase("waytolearnx"));
+// console.log(verifCase("WAYTOLEARNX"));
+
+
+
+// EXERCICE 7
+// Créez une fonction pour multiplier toutes les valeurs d’un tableau par 
+// la longueur du tableau donné.
+// function multiplierTableau(tableau) {
+// 	return tableau.map(nombre => nombre * tableau.length)
+// }
+// console.log(multiplierTableau([1, 1, 1]));
+// console.log(multiplierTableau([1, 2, 3]));
+// console.log(multiplierTableau([0, 0, 0, 0, 2]));
+
+
+
+// EXERCICE 8 -> méthode filter(x => x !== '...')
+// Créez une fonction pour supprimer toutes les valeurs nulles d’un tableau.
+// function supprimerValeurNull(tableau) {
+//     return tableau.filter(valeur => valeur !== null)
+// }
+// console.log(supprimerValeurNull(["Alex", null, "Emily", "Bob"]));
+// console.log(supprimerValeurNull([0, 1, null, 2, null, 3]));
+// console.log(supprimerValeurNull([null, null, null]));
+
+
+
+// EXERCICE 9
+/*
+Une année bissextile a un jour ajouté à février pour être synchronisée avec 
+l’année saisonnière. Une année bissextile apparaît avec une fréquence régulière, 
+déterminée par la règle ci-dessous:
+
+Une année doit être divisible par 400 ou divisible par 4 et non pas 100.
+
+Vous devez implémenter une fonction qui renvoie TRUE si c’est une année bissextile, 
+ou FALSE si ce n’est pas le cas.
+*/
+
+function estBissextile(annee) {
+    if (annee%400 == 0 || annee%4 == 0 && annee%100 !== 0) {
+        return annee + " est bissextile"
+    } else {
+        return annee + " n'est pas bissextile"
+    }
 }
-console.log(verifCase("WayToLearnX"));
-console.log(verifCase("waytolearnx"));
-console.log(verifCase("WAYTOLEARNX"));
+console.log(estBissextile(2020));
+console.log(estBissextile(1400));
+console.log(estBissextile(2000));
+console.log(estBissextile(2024));
+
