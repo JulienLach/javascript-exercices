@@ -119,18 +119,18 @@ renvoie TRUE si c’est un triangle, sinon renvoie FALSE.
 
 //EXERCICE 9
 // Créez une fonction qui renvoie le nombre de syllabes dans une chaîne.
-function nombreDeSyllabes(chaine) {
-    return chaine.length/2;
-}
-console.log(nombreDeSyllabes("SOSOSOSO"));
-console.log(nombreDeSyllabes("HAHAHAHAHA"));
-console.log(nombreDeSyllabes("RIRIRIRIRIRIRIRIRIRI"));
+// function nombreDeSyllabes(chaine) {
+//     return chaine.length/2;
+// }
+// console.log(nombreDeSyllabes("SOSOSOSO"));
+// console.log(nombreDeSyllabes("HAHAHAHAHA"));
+// console.log(nombreDeSyllabes("RIRIRIRIRIRIRIRIRIRI"));
 
-// Autre solution
-function nombreDeSyllabes2(chaine) {
-    let chaineEnMinuscule = chaine.toLowerCase();
-    // Compter le nombre de voyelles (a, e, i, o, u, y)
-    const nombreDeVoyelles = chaineEnMinuscule.replace(/[^aeiouy]/g, '').length;
-    // ici on supprime les voyelles pour laisser que les consonnes et compter les consonnes
-    return nombreDeVoyelles;
-}
+// // Autre solution
+// function nombreDeSyllabes2(chaine) {
+//     let chaineEnMinuscule = chaine.toLowerCase();
+//     // Compter le nombre de voyelles (a, e, i, o, u, y)
+//     const nombreDeVoyelles = chaineEnMinuscule.replace(/[^aeiouy]/g, '').length;
+//     // ici on supprime les voyelles pour laisser que les consonnes et compter les consonnes
+//     return nombreDeVoyelles;
+// }
