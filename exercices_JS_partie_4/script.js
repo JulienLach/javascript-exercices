@@ -51,15 +51,97 @@ Si l’élément n’existe pas, retournez -1.*/
 // console.log(nombreExiste([], 0));
 
 
-// EXERCICE 4
+// EXERCICE 4  
 /*
 Créez une fonction qui prend une chaîne (un nom aléatoire). 
 Si le dernier caractère du nom est un « s », retournez TRUE, sinon retournez FALSE.
 */
 
-function verifS(chaine) {
-}
-console.log(verifS("Thomas"));
-console.log(verifS("Ali"));
-console.log(verifS("Alex"));
-console.log(verifS("Alvis"));
+// function verifS(chaine) {
+//     return chaine[chaine.length-1] === "s"
+// //Elle utilise la propriété "length" pour obtenir la longueur de la chaîne.
+// //Elle vérifie si le dernier caractère (chaine[chaine.length-1]) est égal à la lettre "s".
+// //La fonction retourne true (vrai) si le dernier caractère est "s" et false (faux) sinon.
+// }
+// console.log(verifS("Thomas"));
+// console.log(verifS("Ali"));
+// console.log(verifS("Alex"));
+// console.log(verifS("Alvis"));
+
+
+
+
+//EXERCICE 5 -> la méthode includes
+// Créez une fonction qui renvoie TRUE si une chaîne contient des espaces. Sinon renvoie FALSE.
+
+// function contientEspaces(chaine) {
+//     return chaine.includes(" ")
+// }
+// console.log(contientEspaces("Thomas"));
+// console.log(contientEspaces("Hello World!"));
+// console.log(contientEspaces(" "));
+// console.log(contientEspaces(""));
+
+//EXERCICE 6
+/*
+Créez une fonction qui prend un objet comme argument et renvoie une chaîne qui représente 
+une personne. Les attributs de la personne devront être extraits des trois propriétés de l’objet:
+nom, age, adresse
+La chaîne doit avoir le format suivant: X a Y ans. Il habite à Z. 
+(où X est le nom de la personne, Y est l’age et Z est l’adresse).
+*/
+
+// let bob = {
+//     nom: "Bob",
+//     age: 25,
+//     adresse: "Le Havre, 76600"
+//   };
+
+// function affichagePersonne(personne) {
+//     return (personne.nom + " a " + personne.age + " ans. " + " Il habite à " + personne.adresse)
+// };
+
+// console.log(affichagePersonne({nom: "Thomas", age: "25", adresse: "Paris"}));
+// console.log(affichagePersonne({nom: "Emily", age: "22", adresse: "Nantes"}));
+// console.log(affichagePersonne(bob))
+
+
+//EXERCICE 7
+/*
+Créez une fonction qui prend une chaîne représentant l’humeur et 
+renvoie une phrase au format suivant: « Aujourd’hui, je me sens {feeling} ». 
+Cependant, si aucun argument n’est passé, retournez « Aujourd’hui, je me sens neutre ».
+*/
+
+// function humeur(chaine) {
+//     return ("aujourd'hui je me sens " + chaine)
+// };
+// console.log(humeur("heureux"))
+// console.log(humeur("triste"))
+
+
+
+//EXERCICE 8
+// Créez une fonction qui renvoie le nombre d’arguments avec lesquels elle a été appelée.
+// function nbrArgs() {
+//     return (arguments.length)
+// }
+// console.log(nbrArgs());
+// console.log(nbrArgs({}));
+// console.log(nbrArgs("A"));
+// console.log(nbrArgs("A", "B"));
+
+
+//EXERCICE 9
+/*
+Créez une fonction qui prend un mot et détermine s’il est pluriel ou singulier. 
+Un mot pluriel est celui qui se termine par « s ». S’il est pluriel renvoyer TRUE sinon FALSE.
+*/
+
+// function checkpluriel(chaine) {
+//     return chaine[chaine.length-1] == "s"
+// }
+// console.log(checkpluriel("enfants"));
+// console.log(checkpluriel("filles"));
+// console.log(checkpluriel("fille"));
+// console.log(checkpluriel("enfant"));
