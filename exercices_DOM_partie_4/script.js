@@ -27,23 +27,27 @@ let nombreTireAleatoire = Math.floor(Math.random() * 10) + 1;
 let input = document.getElementById("input");
 let submit = document.getElementById("submit");
 
-submit.addEventListener("click", function (e) {
+submit.addEventListener("click", function(e) {
     e.preventDefault();
 
     let nombreInput = parseInt(input.value);
-
     console.log(nombreTireAleatoire);
 
+    if (isNaN(nombreInput)) {
+        console.log("Veuillez entrer un nombre valide.");
+        return;
+    }
+
     if (nombreInput > nombreTireAleatoire) {
-        console.log(guess + " trop grand");
+        console.log(nombreInput + " trop grand");
     } else if (nombreInput < nombreTireAleatoire) {
         console.log(nombreInput + " trop petit");
     } else {
         console.log("C'est le bon nombre !");
     }
 
-    // If you want to keep prompting until the correct guess, use the following condition
+    // Clear le input à chaque submit si le nombre n'est pas bon
     if (nombreInput !== nombreTireAleatoire) {
-        input.value = ""; // Clear the input for the next guess
+        input.value = "";
     }
 });
