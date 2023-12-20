@@ -22,18 +22,18 @@ valeur maximum du nombre à deviner
 */
 
 
-
-let nombreTireAleatoire = Math.floor(Math.random() * 10) + 1;
 let input = document.getElementById("input");
 let submit = document.getElementById("submit");
+let nombreTireAleatoire = Math.floor(Math.random() * 10) + 1;
 
 submit.addEventListener("click", function(e) {
+
     e.preventDefault();
 
     let nombreInput = parseInt(input.value);
     console.log(nombreTireAleatoire);
 
-    if (isNaN(nombreInput)) {
+    if (isNaN(nombreInput)) { //Verifier que l'input n'est pas vide sinon message
         console.log("Veuillez entrer un nombre valide.");
         return;
     }
@@ -43,7 +43,8 @@ submit.addEventListener("click", function(e) {
     } else if (nombreInput < nombreTireAleatoire) {
         console.log(nombreInput + " trop petit");
     } else {
-        console.log("C'est le bon nombre !");
+        console.log(nombreTireAleatoire + " C'est le bon nombre !");
+        input.value = "";
     }
 
     // Clear le input à chaque submit si le nombre n'est pas bon
