@@ -37,20 +37,37 @@ it returns true.
 
 // EXERCICE 3
 // Vous avez un tableau de nombre, transformez ce tableau en miroir.
-function miroir(tableau) {
-    return tableau.concat(tableau.slice().reverse())
-}
-console.log(miroir([1, 2, 3]));
-console.log(miroir([9, 8, 7]));
-console.log(miroir([10, 20]));
+// function miroir(tableau) {
+//     return tableau.concat(tableau.slice().reverse())
+// }
+// console.log(miroir([1, 2, 3]));
+// console.log(miroir([9, 8, 7]));
+// console.log(miroir([10, 20]));
 
 
 
 // EXERCICE 4 
 // Écrivez une fonction récursive qui trouve la somme des n premiers nombres naturels.
-function somme(nombre) {
-    
-};
-console.log(somme(3));
-console.log(somme(2));
-console.log(somme(10));
+// function somme(nombre) {
+//     if (nombre == 0) {  // 4-1, 3-1, 2-1, et 1-1 = 0 donc la récursive s'arrête
+//         return nombre
+//     }
+//     return nombre + somme(nombre - 1)
+// };
+// console.log(somme(3));
+// console.log(somme(2));
+// console.log(somme(10));
+// console.log(somme(20));
+
+
+
+// EXERCICE 5
+// Créez une fonction pour extraire le nom du catégorie de son URL.
+
+
+function getCategory(url) {
+    return url.split("/")[3]
+  }
+console.log(getCategory("https://waytolearnx.com/html/"));
+console.log(getCategory("https://waytolearnx.com/css/"));
+console.log(getCategory("https://waytolearnx.com/javascript/"));
