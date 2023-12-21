@@ -3,11 +3,31 @@ body {
 }
 
 li {
-    margin-bottom: 10px;
-  }
+  cursor: pointer;
+  margin: 1em auto;
+  transition: 0.2s;
+}
+
+li.checked {
+  color: #696969;
+  text-decoration: line-through;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  transition: 0.2s;
+}
 
 li button {
-    font-size: 14px;
-    margin-left: 20px;
-    color: #666;
-  }
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 20px;
+  color: #666;
+}
+
+.todo-inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}

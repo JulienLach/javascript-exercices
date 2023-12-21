@@ -1,51 +1,62 @@
 let ulListe = document.getElementById("ulListe");
 let input = document.getElementById("item");
-let li = document.createElement("li");
-let span = document.createElement("span");
-let button = document.createElement("button");
 
+// Fonction supprimer la tache reliée au bouton poubelle
+function supprimerItem() {
+    // 'this' fais référence à la li courrante
+    let span = this.parentNode;
+    let li = span.parentNode;
+    li.removeChild(span);
+}
+
+// Fonction rayer de la liste la li cliquée
+function rayerDeLaListe() {
+    // 'this' fais référence à la li courrante
+    this.classList.toggle("checked");
+}
 // Mettre la date du jour par défaut dans le sélecteur de date
 window.onload = function () {
     let dateInput = document.getElementById("date");
-    // Attraper l'élement date avec l'ID
     let today = new Date();
-    //Créer un nouvel objet date
     let formattedDate = today.toISOString().split('T')[0];
-    // Formater la date au format "DD-MM-YYYY" (the format expected by the date input)
     dateInput.value = formattedDate;
-    // Set the value of the date input to today's date
 };
-
 
 function addToList() {
     let inputTexteValeur = input.value;
-    // récuperer la valeur de l'input 
+    // récupérer l'input de la tache
     let inputPrioriteValeur = document.getElementById("priorite").options[document.getElementById("priorite").selectedIndex].textContent;
-    // récupérer la valeur de la priorité
+    // récupérer l'option de priorité sélectionnée
     let dateInput = document.getElementById("date");
     let selectedDate = dateInput.value;
     let dateObject = new Date(selectedDate);
     let formattedDate = dateObject.toLocaleDateString();
-    // récupérer et formater la date sélectionnée
+
+    // Créer les variables locales dans la fonction, li, span et les boutton
     let li = document.createElement("li");
     let span = document.createElement("span");
     let button = document.createElement("button");
-    //créer la li, le span et le boutton. li va contenir l'input qui sera dans un span et le boutton à la fin de la li
-    button.textContent = "🗑️";
-    // ajouter un texte au bouton
-    button.onclick = function supprimerItem() {
-        li.remove();
-    };
-    // ajouter la fonction supprimer la li au bouton
-    span.textContent = inputTexteValeur + " - " + inputPrioriteValeur + " - A faire pour le " + formattedDate;
-    //ajouter au span le texte de l'input
-    li.append(span.textContent);
-    //attacher le texte du span à la li
-    li.append(button);
-    //attacher le boutton à la li
-    ulListe.append(li);
-    //attacher les li à la ul avec les textes des spans
-    input.value = "";
-    //vider la valeur de l'input à la fin de la fonction
-};
 
+    li.addEventListener("click", rayerDeLaListe);
+    // Rayer la li au click
+
+    button.textContent = "🗑️";
+    button.onclick = supprimerItem;
+    // Supprimer la li au click du boutton
+
+    span.textContent = inputTexteValeur + " | Priorité : " + inputPrioriteValeur + " - A faire pour le " + formattedDate;
+    li.append(span);
+    li.append(button);
+    ulListe.append(li);
+
+    input.value = "";
+    // remettre à vide l'input de tâche à la fin de la fonction
+}
+
+
+
+// fonctionatlités a voir avec christpohe
+// push mes li dans un tableau et sort() en fonction de la date
+// trier en fonction de la date
+// monter descendre les tâches
+// local storage de la liste
