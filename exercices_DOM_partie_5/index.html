@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Exercice To Do Liste</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>ToDo Liste</h1>
+
+  <div>
+    <label for="item">Entrer une nouvelle tâche :</label>
+    <input type="text" name="item" id="item">
+    <label for="priorite">Priotité : </label>
+    <select name="priorite" id="priorite">
+      <option value="basse">Basse 🟢</option>
+      <option value="moyenne">Moyenne 🟠</option>
+      <option value="haute">Haute 🔴</option>
+    </select>
+    <label for="date">Date :</label>
+    <input type="date" id="date" name="date">
+    <button onclick="addToList()">Ajouter à la liste</button>
+  </div>
+
+  <ul id="ulListe">
+
+  </ul>
+
+
+
+
+  <div>
+    <div>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
