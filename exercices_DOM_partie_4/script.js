@@ -38,7 +38,6 @@ submit.addEventListener("click", function(e) {
         console.log("Veuillez entrer un nombre valide.");
         return;
     }
-
     // attendre que le premier input soit validé
     let premierEssai = true; // Flag to track the first attempt
     if (premierEssai) {
