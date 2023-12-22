@@ -125,7 +125,7 @@ l’objet boissons trié par prix dans l’ordre croissant.
 //     {nom: "menthe", prix: 35},
 //     {nom: "fraise", prix: 5}
 //   ]
-  
+
 //   function sortByPrice(boissons) {
 //     return boissons.sort(function(a, b) {
 //         return a.prix - b.prix;
@@ -156,6 +156,29 @@ Créez une fonction qui prend un entier et retourne s’il s’agit d’un nombr
 
 
 
+// EXERCICE 8
+// Avec deux chaînes, créez une fonction qui renvoie le nombre total de caractères 
+// uniques de la chaîne concaténée.
+// function uniqueCaractere(chaine1, chaine2) {
+//     const chaineConcatenee = chaine1 + chaine2;
+//     const caractereSet = new Set(chaineConcatenee);
+//     return caractereSet.size;
+// }
+// console.log(uniqueCaractere("attention", "intention"));
+// console.log(uniqueCaractere("plus", "tous"));
+// console.log(uniqueCaractere("bis", "lis"));
 
 
-
+// EXERCICE 9
+// Écrivez une fonction récursive qui trouve la somme d’un tableau.
+function somme(tableau) {
+    if (tableau.length === 0) {
+        return 0; // Si le tableau est vide, la somme est 0.
+    } else {
+        // Retourne le premier élément du tableau plus la somme du reste du tableau.
+        return tableau[0] + somme(tableau.slice(1));
+    }
+}
+console.log(somme([1, 2, 3])); // Output: 6
+console.log(somme([1, 2])); // Output: 3
+console.log(somme([])); // Output: 0

@@ -59,7 +59,7 @@ Créez une fonction qui prend un nombre (de 1 à 12) et renvoie son nom de mois
 correspondant sous forme de chaîne. Par exemple, si on vous donne 4 en entrée,
 votre fonction devrait retourner Avril, car Avril est le 4ème mois.
 */
-// const mois = {
+// const mois = {   
 //     1: 'Janvier',
 //     2: 'Février',
 //     3: 'Mars',
@@ -84,20 +84,21 @@ votre fonction devrait retourner Avril, car Avril est le 4ème mois.
 
 
 // EXERCICE 7
-/* Créez une fonction qui renvoie « Majuscule » si toutes les lettres d’un mot 
-sont en majuscules, « Minuscule » si toutes les lettres d’un mot sont en minuscule 
+/* Créez une fonction qui renvoie « Majuscule » si toutes les lettres d’un mot
+sont en majuscules, « Minuscule » si toutes les lettres d’un mot sont en minuscule
 et « Mix » s’il contient à la fois des majuscules et des minuscules.
 */
-function caseOf(chaine) {
-    if (chaine === chaine.toUpperCase()) {
-        return "Majuscule"
-    } else if (chaine === chaine.toLowerCase()) {
-        return "Minuscule"
-    } else {
-        return "Mix"
-    }
-}
-console.log(caseOf("WAYTOLEARNX"));
-console.log(caseOf("waytolearnx"));
-console.log(caseOf("WayToLearnX"));
+// function caseOf(chaine) {
+//     if (chaine === chaine.toUpperCase()) {
+//         return "Majuscule"
+//     } else if (chaine === chaine.toLowerCase()) {
+//         return "Minuscule"
+//     } else {
+//         return "Mix"
+//     }
+// }
+// console.log(caseOf("WAYTOLEARNX"));
+// console.log(caseOf("waytolearnx"));
+// console.log(caseOf("WayToLearnX"));
+
 
