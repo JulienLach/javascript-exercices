@@ -63,11 +63,30 @@ it returns true.
 
 // EXERCICE 5
 // Créez une fonction pour extraire le nom du catégorie de son URL.
+// function afficheCategories(url) {
+//   return url.split("/")[3]
+// }
+// console.log(getCategory("https://waytolearnx.com/html/"));
+// console.log(getCategory("https://waytolearnx.com/css/"));
+// console.log(getCategory("https://waytolearnx.com/javascript/"));
 
 
-function getCategory(url) {
-    return url.split("/")[3]
-  }
-console.log(getCategory("https://waytolearnx.com/html/"));
-console.log(getCategory("https://waytolearnx.com/css/"));
-console.log(getCategory("https://waytolearnx.com/javascript/"));
+// EXERCICE 6 -> utilisation objet "Object" avec méthode .keys
+// Écrivez une fonction qui renvoie TRUE si un objet est vide, sinon renvoie FALSE.
+// function verifSiVide(objet) {
+//   return Object.keys(objet).length === 0;
+// }
+// console.log(verifSiVide({ a: 1, b: 2 }));
+// console.log(verifSiVide({ a: 1 }));
+// console.log(verifSiVide({}));
+
+
+// EXERCICE 7
+// Écrivez une fonction qui récupère les x derniers éléments d’un tableau.
+function dernierItem(tableau, x) {
+  return tableau.slice(-x)
+}
+console.log(dernierItem([8, 1, 5, 2, 4, 9], 3));
+console.log(dernierItem([1, 2, 3], 1));
+console.log(dernierItem([1, 2, 3, 4], 10));
+console.log(dernierItem([1, 2, 3, 4], 0));

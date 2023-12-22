@@ -22,13 +22,18 @@ valeur maximum du nombre à deviner
 */
 
 
+// faire par fonctionalité méthode : extreme programming : définir une variable, puis les fonction , puis les associations.
+// autre méthode , créer toutes les variables, créer toutes les fonction, et ensuite faire toutes les associations
+
+
+
 let input = document.getElementById("input");
 let submit = document.getElementById("submit");
 let nombreTireAleatoire = Math.floor(Math.random() * 10) + 1;
 let timer; // Variable pour le timer
 
 
-submit.addEventListener("click", function(e) {
+submit.addEventListener("click", function (e) {
     e.preventDefault();
 
     let nombreInput = parseInt(input.value);
@@ -38,18 +43,19 @@ submit.addEventListener("click", function(e) {
         console.log("Veuillez entrer un nombre valide.");
         return;
     }
+
     // attendre que le premier input soit validé
     let premierEssai = true; // Flag to track the first attempt
     if (premierEssai) {
         premierEssai = false;
 
         // lancer le timer de 7 secondes après la validation du premier input
-        timer = setTimeout(function() {
+        timer = setTimeout(function () {
             // Display message after 3 seconds
             console.log("Temps écoulé ! Vous avez perdu.");
-            
+
             // Reload the page after an additional 7 seconds (total 10 seconds)
-            setTimeout(function() {
+            setTimeout(function () {
                 location.reload();
             }, 2000);
         }, 7000);
