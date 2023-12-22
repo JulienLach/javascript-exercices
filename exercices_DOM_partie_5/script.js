@@ -23,6 +23,61 @@ function rayerDeLaListe() {
     this.classList.toggle("checked");
 }
 
+// Fonction trier les dates dans mon array listeLI
+function sortDates() {
+    listeLI.sort(function (a, b) {
+        // Split date strings into arrays of day, month, and year
+        var dateA = a.split("/");
+        var dateB = b.split("/");
+
+        // Convert the date components to numbers
+        var dayA = parseInt(dateA[0], 10);
+        var monthA = parseInt(dateA[1], 10);
+        var yearA = parseInt(dateA[2], 10);
+
+        var dayB = parseInt(dateB[0], 10);
+        var monthB = parseInt(dateB[1], 10);
+        var yearB = parseInt(dateB[2], 10);
+
+        // Compare the years
+        if (yearA !== yearB) {
+            return yearA - yearB;
+        }
+        // If the years are the same, compare the months
+        if (monthA !== monthB) {
+            return monthA - monthB;
+        }
+        // If the months are the same, compare the days
+        return dayA - dayB;
+    });
+    // Display the sorted array in the console (you can update this part as needed)
+    displaySortedDates();
+    console.log(listeLI);
+}
+
+// fonction afficher les dates triées
+// j'ai sort() que les dates dans cette fonction, il faut ajouter la tache et l'input
+function displaySortedDates() {
+    var ulListe = document.getElementById("ulListe");
+    ulListe.innerHTML = ""; // Clear the existing list
+
+    for (var i = 0; i < listeLI.length; i++) {
+        let li = document.createElement("li");
+        let span = document.createElement("span");
+        let button = document.createElement("button");
+
+        li.addEventListener("click", rayerDeLaListe);
+
+        button.textContent = "🗑️";
+        button.onclick = supprimerItem;
+
+        span.textContent = "Task: " + i + " | A faire pour le " + listeLI[i];
+        li.append(span);
+        li.append(button);
+        ulListe.append(li);
+    }
+}
+
 // Mettre la date du jour par défaut dans le sélecteur de date
 window.onload = function () {
     let dateInput = document.getElementById("date");
@@ -30,6 +85,8 @@ window.onload = function () {
     let formattedDate = today.toISOString().split('T')[0];
     dateInput.value = formattedDate;
 };
+
+
 
 function addToList() {
     let inputTexteValeur = input.value;
@@ -61,6 +118,8 @@ function addToList() {
     // mettre les li dans un tableau pour le trier
     listeLI.push(formattedDate); // Push only the date into the array
     console.log(listeLI);
+
+    document.getElementById("sortButton").addEventListener("click", sortDates);
 
     input.value = "";
     // remettre à vide l'input de tâche à la fin de la fonction
