@@ -21,9 +21,9 @@
 // EXERCICE 2
 // Écrivez une fonction qui renvoie TRUE si tous les caractères d’une chaîne sont identiques, 
 // sinon renvoie FALSE.
-/*This version uses split('') to convert the string into an array of characters 
-and then uses the every method to check if every character is equal to the first 
-character of the string. If any character is different, it will return false; otherwise, 
+/*This version uses split('') to convert the string into an array of characters
+and then uses the every method to check if every character is equal to the first
+character of the string. If any character is different, it will return false; otherwise,
 it returns true.
 */
 // function verifCaracteres(chaine) {
@@ -83,10 +83,32 @@ it returns true.
 
 // EXERCICE 7
 // Écrivez une fonction qui récupère les x derniers éléments d’un tableau.
-function dernierItem(tableau, x) {
-  return tableau.slice(-x)
-}
-console.log(dernierItem([8, 1, 5, 2, 4, 9], 3));
-console.log(dernierItem([1, 2, 3], 1));
-console.log(dernierItem([1, 2, 3, 4], 10));
-console.log(dernierItem([1, 2, 3, 4], 0));
+// function dernierItem(tableau, x) {
+//   return tableau.slice(-x)
+// }
+// console.log(dernierItem([8, 1, 5, 2, 4, 9], 3));
+// console.log(dernierItem([1, 2, 3], 1));
+// console.log(dernierItem([1, 2, 3, 4], 10));
+// console.log(dernierItem([1, 2, 3, 4], 0));
+
+
+
+// EXERCICE 8
+// Écrivez une fonction qui supprime toutes les caractères spéciaux dans une chaîne.
+// function removeSpecialChar(chaine) {
+//   return chaine.replace(/[^a-z]/gi, '');
+// }
+// console.log(removeSpecialChar("@W*-a?;+y!°T-8o_&L?e!=r%$n<X"));
+// console.log(removeSpecialChar(",A@[L]?e*$!x"));
+// console.log(removeSpecialChar("$*;H[!e&}l]l@{^.o"));
+
+
+// EXERCICE 9 -> objet global String qui renvoi une chaine
+// Écrivez une fonction qui renvoie TRUE si un nombre est un palindrome.
+// function checkPalindrome(numbers) {
+//   return String(numbers).split('').reverse().join('') == String(numbers);
+// }
+// console.log(checkPalindrome(212));
+// console.log(checkPalindrome(123));
+// console.log(checkPalindrome(75257));
+
