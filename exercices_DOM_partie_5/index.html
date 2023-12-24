@@ -12,27 +12,31 @@
 </head>
 
 <body>
+  <section>
+    <div class="container">
+      <h1>To Do List</h1>
+      <div class="todo-inputs">
+        <label for="item">Entrer une nouvelle tâche :</label>
+        <input type="text" name="item" id="item">
+        <label for="priorite">Priotité : </label>
+        <select name="priorite" id="priorite">
+          <option value="basse">Basse 🟢</option>
+          <option value="moyenne">Moyenne 🟠</option>
+          <option value="haute">Haute 🔴</option>
+        </select>
+        <label for="date">Date :</label>
+        <input type="date" id="date" name="date">
+        <button onclick="addToList()">Ajouter à la liste</button>
+        <!-- <button id="sortButton">Trier par dates</button> -->
+      </div>
 
-  <h1>To Do List</h1>
+      <ul id="ulListe">
 
-  <div class="todo-inputs">
-    <label for="item">Entrer une nouvelle tâche :</label>
-    <input type="text" name="item" id="item">
-    <label for="priorite">Priotité : </label>
-    <select name="priorite" id="priorite">
-      <option value="basse">Basse 🟢</option>
-      <option value="moyenne">Moyenne 🟠</option>
-      <option value="haute">Haute 🔴</option>
-    </select>
-    <label for="date">Date :</label>
-    <input type="date" id="date" name="date">
-    <button onclick="addToList()">Ajouter à la liste</button>
-    <button id="sortButton">Trier par dates</button>
-  </div>
+      </ul>
+    </div>
+  </section>
 
-  <ul id="ulListe">
 
-  </ul>
 
   <script src="script.js"></script>
 </body>

@@ -1,11 +1,23 @@
 body {
   font-family: 'Ubuntu', sans-serif;
+  background-color: #fafafa;
+}
+
+.container {
+  margin: auto;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+h1 {
+  font-size: 2em;
 }
 
 .todo-inputs {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 1em;
 }
 
@@ -26,10 +38,12 @@ li.checked {
   text-decoration: line-through;
 }
 
-li:hover {
+
+span:hover,
+button:hover {
   cursor: pointer;
-  background-color: lightgray;
-  transition: 0.2s;
+  background-color: #e4e4e4;
+  border-radius: 0.5em;
 }
 
 li button {
@@ -37,4 +51,27 @@ li button {
   font-size: 14px;
   margin-left: 20px;
   color: #666;
+}
+
+
+input,
+button,
+select {
+  padding: 0.5em;
+  border: 1px solid lightgray;
+  border-radius: 0.4em;
+  transition: 0.3s;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.9em;
+
+}
+
+button:hover {
+  background-color: rgb(194, 194, 194);
+}
+
+
+
+@media (max-width: 960px) {
+  .todo-inputs {}
 }
