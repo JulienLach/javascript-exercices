@@ -36,6 +36,8 @@ for (let i = 0; i < pieces.length; i++) {
 
 }
 
+// Création d'un objet array à partir du array pieces pour ne pas altérer le tableau principal
+// Fonction tri croissant
 const boutonTrier = document.querySelector(".btn-trier");
 boutonTrier.addEventListener("click", function () {
     const piecesTriees = Array.from(pieces);
@@ -46,6 +48,18 @@ boutonTrier.addEventListener("click", function () {
 });
 
 
+// Fonction tri décroissant
+const boutonDecroissant = document.querySelector(".btn-decroissant");
+boutonDecroissant.addEventListener("click", function () {
+    const piecesTriees = Array.from(pieces);
+    piecesTriees.sort(function (a, b) {
+        return b.prix - a.prix;
+    });
+    console.log(piecesTriees);
+});
+
+
+
 const boutonFiltrer = document.querySelector(".btn-filtrer");
 boutonFiltrer.addEventListener("click", function () {
     const pieceFiltrees = pieces.filter(function (piece) {
@@ -53,6 +67,25 @@ boutonFiltrer.addEventListener("click", function () {
     });
     console.log(pieceFiltrees)
 });
+
+
+
+const boutonDescription = document.querySelector(".btn-description");
+boutonDescription.addEventListener("click", function () {
+    const pieceDescription = pieces.filter(function (piece) {
+        return piece.description;
+    });
+    console.log(pieceDescription);
+});
+
+
+const testmap = document.querySelector("test-map")
+testmap.addEventListener("click", function () {
+    pieces.map(function (piece) {
+        return piece.nom
+    })
+})
+
 
 /*
 À vous de jouer !
@@ -65,3 +98,4 @@ une description, à l’aide d’un bouton que vous ajouterez dans le HTML ;
 ordonner les listes selon le prix en ordre décroissant, à l’aide 
 d’un bouton que vous ajouterez dans le HTML.
 */
+
