@@ -4,14 +4,17 @@
 <head>
 	<meta charset="utf-8">
 	<title>Les Bonnes Pièces</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 	<script type="module" src="pieces.js"></script>
 </head>
 
 <body>
 	<header>
-		<img src="images/logo-les-bonnes-pieces.png" alt="LOGO">
-		<h1>Les Bonnes Pièces</h1>
+		<img src="images/iot.png" alt="LOGO">
+		<h1>HomeIOT</h1>
 	</header>
 	<main>
 		<!-- Menu de recherche -->
@@ -25,7 +28,7 @@
 			<br>
 			<button class="btn-nodesc">Filtrer les pièces sans description</button>
 			<div>
-				<h3>Tirer par prix</h3>
+				<h3>Prix maximum</h3>
 				<input type="range" id="prix" name="prix" min="0" max="60" value="60" step="5" />
 				<label for="volume">Prix (Entre 0€ et 60€)</label>
 				<div>Jusqu'a <span class="prixValue">60</span> €</div>

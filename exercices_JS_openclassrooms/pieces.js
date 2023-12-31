@@ -1,8 +1,12 @@
+// pour éviter les erreurs il faut importer la fonction du fichier avis.js
+import { ajoutListenersAvis } from "./avis.js";
+
 // Récupération des pièces depuis le fichier JSON
-const reponse = await fetch('pieces-autos.json');
+const reponse = await fetch('iot-items.json');
 const pieces = await reponse.json();
 
 function genererPieces(pieces) {
+    https://openclassrooms.com/fr/courses/7697016-creez-des-pages-web-dynamiques-avec-javascript
     for (let i = 0; i < pieces.length; i++) {
 
         const article = pieces[i];
@@ -23,22 +27,32 @@ function genererPieces(pieces) {
         descriptionElement.innerText = article.description ?? "Pas de description pour le moment.";
         const stockElement = document.createElement("p");
         stockElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
-
+        // ajout du bouton avis
+        const avisBouton = document.createElement("button");
+        // assigner au bouton l'id de l'article
+        avisBouton.dataset.id = article.id
+        avisBouton.textContent = "Afficher les avis";
         // On rattache la balise article a la section Fiches
         sectionFiches.appendChild(pieceElement);
-        // On rattache l’image à pieceElement (la balise article)
+        // On rattache l’image et les autres éléments à pieceElement (la balise article)
         pieceElement.appendChild(imageElement);
         pieceElement.appendChild(nomElement);
         pieceElement.appendChild(prixElement);
         pieceElement.appendChild(categorieElement);
-        //Ajout des éléments au DOM pour l'exercice
+        //Ajout des autres éléments au DOM pour l'exercice
         pieceElement.appendChild(descriptionElement);
         pieceElement.appendChild(stockElement);
-
+        pieceElement.appendChild(avisBouton);
     }
+    // Ajout de la fonction ajoutListenersAvis
+    ajoutListenersAvis();
 }
 
 genererPieces(pieces);
+
+
+
+
 
 //gestion des bouttons 
 const boutonTrier = document.querySelector(".btn-trier");
@@ -95,7 +109,7 @@ console.log(noms)
 
 //Création de l'en-tête
 const pElement = document.createElement('p')
-pElement.innerText = "Pièces abordables";
+pElement.innerText = "Pièces à moins de 35 €";
 //Création de la liste
 const abordablesElements = document.createElement('ul');
 //Ajout de chaque nom à la liste
@@ -128,7 +142,7 @@ for (let i = 0; i < nomsDisponibles.length; i++) {
 }
 
 const pElementDisponible = document.createElement('p')
-pElementDisponible.innerText = "Pièces disponibles:";
+pElementDisponible.innerText = "Pièces en stock:";
 document.querySelector('.disponibles').appendChild(pElementDisponible).appendChild(disponiblesElement)
 
 
