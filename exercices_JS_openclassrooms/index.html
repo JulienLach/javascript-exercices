@@ -11,32 +11,32 @@
 <body>
 	<header>
 		<img src="images/logo-les-bonnes-pieces.png" alt="LOGO">
-		<h1>Pièces auto</h1>
+		<h1>Les Bonnes Pièces</h1>
 	</header>
 	<main>
 		<!-- Menu de recherche -->
 		<section class="filtres">
 			<h3>Filtres</h3>
-			<button class="btn btn-trier">Trier par prix croissant</button>
+			<button class="btn-trier">Trier par prix croissant</button>
 			<br>
-			<button class="btn btn-filtrer">Filtrer les pièces non abordables</button>
+			<button class="btn-filtrer">Filtrer les pièces non abordables</button>
 			<br>
-			<button class="btn btn-decroissant">Trier par prix décroissant</button>
+			<button class="btn-decroissant">Trier par prix décroissant</button>
 			<br>
-			<button class="btn btn-description">Afficher les pièces avec description</button>
-			<br>
-			<button class="test-map">TEST MAP</button>
+			<button class="btn-nodesc">Filtrer les pièces sans description</button>
+			<div>
+				<h3>Tirer par prix</h3>
+				<input type="range" id="prix" name="prix" min="0" max="60" value="60" step="5" />
+				<label for="volume">Prix (Entre 0€ et 60€)</label>
+				<div>Jusqu'a <span class="prixValue">60</span> €</div>
+			</div>
 		</section>
 
 		<!-- Fiches produits -->
 		<section class="fiches">
-			<!-- Elements liste abordables -->
-			<div class="abordables">
-				<p>Pièces abordables</p>
-			</div>
-			<div class="disponibles">
-				<p>Pièces disponibles</p>
-			</div>
+			<!-- Code ajouté -->
+			<div class="abordables"></div>
+			<div class="disponibles"></div>
 		</section>
 	</main>
 </body>
