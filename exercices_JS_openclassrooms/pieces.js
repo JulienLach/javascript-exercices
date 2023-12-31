@@ -59,7 +59,7 @@ boutonDecroissant.addEventListener("click", function () {
 });
 
 
-
+// Fonction n'afficher que les pièces en dessous de 35€
 const boutonFiltrer = document.querySelector(".btn-filtrer");
 boutonFiltrer.addEventListener("click", function () {
     const pieceFiltrees = pieces.filter(function (piece) {
@@ -69,33 +69,63 @@ boutonFiltrer.addEventListener("click", function () {
 });
 
 
-
 const boutonDescription = document.querySelector(".btn-description");
 boutonDescription.addEventListener("click", function () {
     const pieceDescription = pieces.filter(function (piece) {
-        return piece.description;
+        return piece.description; // va retourner un booleen donc true pour les pièces qui ont une description, ne va pas afficher les pièces sans description
     });
     console.log(pieceDescription);
 });
 
 
-const testmap = document.querySelector("test-map")
-testmap.addEventListener("click", function () {
-    pieces.map(function (piece) {
+const bouttonNomsPieces = document.querySelector(".test-map")
+bouttonNomsPieces.addEventListener("click", function () {
+    const nomsPieces = pieces.map(function (piece) {
         return piece.nom
     })
+    console.log(nomsPieces)
 })
 
 
-/*
-À vous de jouer !
-Depuis la branche P2C1-Exercice, éditez les fichiers pieces.js et 
-index.html pour y ajouter les fonctionnalités suivantes :
+const noms = pieces.map(pieces => pieces.nom);
+for (let i = pieces.length - 1; i >= 0; i--) {
+    if (pieces[i].prix > 35) {
+        noms.splice(i, 1)
+    }
+}
+console.log(noms)
 
-filtrer la liste des pièces pour n’afficher que celles qui ont 
-une description, à l’aide d’un bouton que vous ajouterez dans le HTML ;
 
-ordonner les listes selon le prix en ordre décroissant, à l’aide 
-d’un bouton que vous ajouterez dans le HTML.
-*/
+// Afficher liste des pièces abordables
+// Création de la ul
+const abordablesElements = document.createElement("ul");
+// ajout des li dans la ul
+for (let i = 0; i < noms.length; i++) {
+    const nomElement = document.createElement("li");
+    nomElement.innerText = noms[i];
+    abordablesElements.appendChild(nomElement);
+}
+document.querySelector(".abordables").appendChild(abordablesElements)
 
+
+// Afficher les pièces dispobibles avec leur prix, fonction map et méthode splice
+const nomDisponibles = pieces.map(pieces => pieces.nom);
+const prixDisponibles = pieces.map(pieces => pieces.prix)
+
+for (let i = pieces.length - 1; i >= 0; i--) {
+    if (pieces[i].disponibilite === false) {
+        nomDisponibles.splice(i, 1)
+        prixDisponibles.splice(i, 1)
+    }
+}
+
+const disponiblesElement = document.createElement("ul")
+for (let i = 0; i < nomDisponibles.length; i++) {
+    const nomElement = document.createElement("li")
+    nomElement.innerText = (nomDisponibles[i] + " - " + prixDisponibles[i] + " € ");
+    disponiblesElement.appendChild(nomElement)
+}
+document.querySelector(".disponibles").appendChild(disponiblesElement)
+
+// // Effacer le contenu de la balise body avec innerHTMl et guillemet vide ""
+// document.querySelector(".fiches").innerHTML = '';
