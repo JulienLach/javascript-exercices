@@ -1,9 +1,12 @@
-// pour éviter les erreurs il faut importer la fonction du fichier avis.js
-import { ajoutListenersAvis } from "./avis.js";
+// pour éviter les erreurs il faut importer les fonctions du fichier avis.js
+import { ajoutListenersAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
 
-// Récupération des pièces depuis le fichier JSON
-const reponse = await fetch('iot-items.json');
+// Récupération des pièces depuis l'API
+const reponse = await fetch('http://localhost:8081/pieces/');
 const pieces = await reponse.json();
+// on appel la fonction pour ajouter le listener au formulaire
+ajoutListenerEnvoyerAvis()
+
 
 function genererPieces(pieces) {
     https://openclassrooms.com/fr/courses/7697016-creez-des-pages-web-dynamiques-avec-javascript
@@ -47,8 +50,7 @@ function genererPieces(pieces) {
     // Ajout de la fonction ajoutListenersAvis
     ajoutListenersAvis();
 }
-
-genererPieces(pieces);
+genererPieces(pieces); //premier appel de la fonction
 
 
 

@@ -27,17 +27,36 @@
 			<button class="btn-decroissant">Trier par prix décroissant</button>
 			<br>
 			<button class="btn-nodesc">Filtrer les pièces sans description</button>
+			<!-- Range de prix -->
 			<div>
 				<h3>Prix maximum</h3>
 				<input type="range" id="prix" name="prix" min="0" max="60" value="60" step="5" />
 				<label for="volume">Prix (Entre 0€ et 60€)</label>
 				<div>Jusqu'a <span class="prixValue">60</span> €</div>
 			</div>
+			<!-- Formulaire déposer un avis -->
+			<h3>Ajouter un avis</h3>
+			<form class="formulaire-avis">
+				Identifiant de la pièce :<br>
+				<input type="number" name="piece-id"><br>
+				Nom d'utilisateur :<br>
+				<input type="text" name="utilisateur"><br>
+				Avis :<br>
+				<input type="text" name="commentaire"><br>
+				Nombre d'étoile :<br>
+				<input type="number" name="nbEtoiles" min="0" max="5"><br>
+				<br>
+				<button>Envoyer</button>
+			</form>
+			<!-- Nombre d'étoile produit -->
+			<div>
+
+			</div>
 		</section>
 
 		<!-- Fiches produits -->
 		<section class="fiches">
-			<!-- Code ajouté -->
+			<!-- test affichage manipulation array , sort, splice, map -->
 			<div class="abordables"></div>
 			<div class="disponibles"></div>
 		</section>
