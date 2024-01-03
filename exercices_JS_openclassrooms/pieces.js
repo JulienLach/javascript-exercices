@@ -1,22 +1,35 @@
 // pour éviter les erreurs il faut importer les fonctions du fichier avis.js
-import { ajoutListenersAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
+import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis } from "./avis.js";
+let pieces = window.localStorage.getItem("pieces");
 
-// Récupération des pièces depuis l'API avec requette HTTP
-const reponse = await fetch('http://localhost:8081/pieces/');
-const pieces = await reponse.json();
+// si il n'y a rien dans le local storage, on applique la fonction de base de récupération des pièces
+if (pieces === null) {
+    // Récupération des pièces depuis l'API avec requette HTTP
+    const reponse = await fetch('http://localhost:8081/pieces/');
+    pieces = await reponse.json();
+
+    // transformation des pièces en format JSON avec stringify
+    const valeurPieces = JSON.stringify(pieces);
+    // stockage des informations stringifié dans le localStorage, pour y être stockées elle doivent être sous la forme de chaines
+    window.localStorage.setItem("pièces", valeurPieces);
+    // console.log(valeurPieces) // pour vérifier que le localStorage marche
+    // Les clés et les valeurs sont toujours des chaînes de caractères
+} else {
+    pieces = JSON.parse(pieces) // si il y a des données dans le localStorage, on le reconstruit en mémoire avec JSON.parse
+}
+// dans tous les cas, la variable pièces contiendra les donnéess des pièces
+
+
+
+
 // on appel la fonction pour ajouter le listener au formulaire
 ajoutListenerEnvoyerAvis()
 
-// transformation des pièces en JSON avec stringify
-const valeurPieces = JSON.stringify(pieces);
-// stockage des informations stringifié dans le localStorage, pour y être stockées elle doivent être sous la forme de chaines
-window.localStorage.setItem("pièces", valeurPieces);
-console.log(valeurPieces)
-// Les clés et les valeurs sont toujours des chaînes de caractères
+
 
 
 function genererPieces(pieces) {
-    https://openclassrooms.com/fr/courses/7697016-creez-des-pages-web-dynamiques-avec-javascript
+
     for (let i = 0; i < pieces.length; i++) {
 
         const article = pieces[i];
@@ -39,6 +52,8 @@ function genererPieces(pieces) {
         stockElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
         // ajout du bouton avis
         const avisBouton = document.createElement("button");
+        // permet de récupérer l'élément parent auquel ajouter les avis plus tard
+        avisBouton.dataset.id = article.id
         // assigner au bouton l'id de l'article
         avisBouton.dataset.id = article.id
         avisBouton.textContent = "Afficher les avis";
@@ -59,7 +74,16 @@ function genererPieces(pieces) {
 }
 genererPieces(pieces); //premier appel de la fonction
 
+for (let i = 0; i < pieces.length; i++) {
+    const id = pieces[i].id;
+    const avisJSON = window.localStorage.getItem(`avis-piece-${id}`);
+    const avis = JSON.parse(avisJSON);
 
+    if (avis !== null) {
+        const pieceElement = document.querySelector(`article[data-id="${id}"]`);
+        afficherAvis(pieceElement, avis)
+    }
+}
 
 
 
@@ -170,4 +194,11 @@ rangeInput.addEventListener("input", function () {
     document.querySelector(".fiches").innerHTML = "";
     // onrégénère la page avec la fonction genererPieces mais filtrée dans la fonction ci dessus
     genererPieces(piecesFiltrees)
+});
+
+
+// boutton mettre à jour la liste des pièces avec le localStorage
+const bouttonMettreAJour = document.querySelector(".btn-maj")
+bouttonMettreAJour.addEventListener("click", function () {
+    window.localStorage.removeItem("pieces")
 });

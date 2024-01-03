@@ -16,14 +16,20 @@ export function ajoutListenersAvis() {
             const avis = await reponse.json();
             const piecesElements = event.target.parentElement; // on récupère l'élément parent de la cible de l'évènement
 
-            const avisElement = document.createElement("p"); // on créé la balise p dans laquelle on met le commentaire + le nom de l'utilisateur
-            for (let i = 0; i < avis.length; i++) {
-                avisElement.innerHTML += `<b> ${avis[i].utilisateur}:</b> ${avis[i].commentaire} Note : ${avis[i].nbEtoiles} <br>}`;
-            }
-            piecesElements.appendChild(avisElement);
-            // pour finir on attache l'élément p à l'élément principal piecesElements
+            window.localStorage.setItem(`avis-piece-${id}`, JSON.stringify(avis)) // prendre l'ID de la pièce et convertir les avis reçu en chaine
+            afficherAvis(piecesElements, avis)
         });
     };
+};
+
+
+export function afficherAvis(piecesElements, avis) {
+    const avisElement = document.createElement("p"); // on créé la balise p dans laquelle on met le commentaire + le nom de l'utilisateur
+    for (let i = 0; i < avis.length; i++) {
+        avisElement.innerHTML += `<b> ${avis[i].utilisateur}:</b> ${avis[i].commentaire} Note : ${avis[i].nbEtoiles} <br>}`;
+    }
+    piecesElements.appendChild(avisElement);
+    // pour finir on attache l'élément p à l'élément principal piecesElements
 };
 
 
