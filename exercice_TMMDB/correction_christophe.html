@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Charger une image</title>
+    </head>
+    <body>
+        <div id="fetch">
+            <h2>Avec Fetch</h2>
+        </div>
+        <div id="xmlhttprequest">
+            <h2>Avec XMLHttpRequest</h2>
+        </div>
+        <script>
+            const imageUrl = "https://image.tmdb.org/t/p/original/4bTShLVFnVKK31cowgjdAIZV84T.jpg";
+
+            // ------------- fetch ----------------------------
+            async function loadFetch() {
+                // Utilise fetch pour charger l'image
+                const response = await fetch(imageUrl);
+                // Vérifie si la réponse est réussie
+                if (response.ok) {
+                    // Obtiens le corps de la réponse
+                    const imageData = await response.blob();
+                    // Crée un objet Image
+                    const image = new Image();
+                    // Charge l'image à partir des données
+                    image.src = URL.createObjectURL(imageData);
+                    // Ajoute l'image au DOM
+                    document.querySelector("#fetch").appendChild(image);
+                }
+            }
+            //appel dela fonction asynchrone
+            loadFetch();
+
+            // ------------- XMLHttpRequest -------------------
+            // Crée un objet XMLHttpRequest
+            const xhr = new XMLHttpRequest();
+            // Ajoute un écouteur d'événements
+            xhr.addEventListener("load", function (evt) {
+                // Traite la réponse de la requête
+                if (xhr.status === 200) {
+                    // La requête a réussi
+                    // Obtiens le contenu de la réponse
+                    const imageData = xhr.response;
+                    // Crée un objet Image
+                    const image = new Image();
+                    // Charge l'image à partir des données
+                    image.src =  URL.createObjectURL(imageData);
+                    // Ajoute l'image au DOM
+                    document.querySelector("#xmlhttprequest").appendChild(image);
+                }
+            });
+            // Configure la requête
+            xhr.open("GET", imageUrl);
+            // On definit ce que l'on attend comme données
+            xhr.responseType="blob";
+            // Exécute la requête
+            xhr.send();
+        </script>
+    </body>
+</html>

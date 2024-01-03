@@ -1,39 +1,30 @@
 export function ajoutListenersAvis() {
 
-    // on récupère tous les boutons
     const piecesElements = document.querySelectorAll(".fiches article button");
 
-    // pour chaque boutton cliqué, on récupère l'avis de l'ID produit correspondant
     for (let i = 0; i < piecesElements.length; i++) {
 
-        piecesElements[i].addEventListener("click", async function (event) { // pour chaque ID on récupère les avis au click du boutton
+        piecesElements[i].addEventListener("click", async function (event) {
 
             const id = event.target.dataset.id;
-
-            // on récupère la valeur de l'id du produit avec l'attribut de donnée dataset
-            const reponse = await fetch(`http://localhost:8081/pieces/${id}/avis`);
-            // ajout de await car asynchrone + il faut stocker la réponse de l'API dans une constante, c'est une réponse au format JSON
+            const reponse = await fetch("http://localhost:8081/pieces/" + id + "/avis");
             const avis = await reponse.json();
-            const piecesElements = event.target.parentElement; // on récupère l'élément parent de la cible de l'évènement
-
-            window.localStorage.setItem(`avis-piece-${id}`, JSON.stringify(avis)) // prendre l'ID de la pièce et convertir les avis reçu en chaine
-            afficherAvis(piecesElements, avis)
+            window.localStorage.setItem(`avis-piece-${id}`, JSON.stringify(avis))
+            const pieceElement = event.target.parentElement;
+            afficherAvis(pieceElement, avis)
         });
-    };
-};
 
-
-export function afficherAvis(piecesElements, avis) {
-    const avisElement = document.createElement("p"); // on créé la balise p dans laquelle on met le commentaire + le nom de l'utilisateur
-    for (let i = 0; i < avis.length; i++) {
-        avisElement.innerHTML += `<b> ${avis[i].utilisateur}:</b> ${avis[i].commentaire} Note : ${avis[i].nbEtoiles} <br>}`;
     }
-    piecesElements.appendChild(avisElement);
-    // pour finir on attache l'élément p à l'élément principal piecesElements
-};
+}
 
+export function afficherAvis(pieceElement, avis) {
+    const avisElement = document.createElement("p");
+    for (let i = 0; i < avis.length; i++) {
+        avisElement.innerHTML += `<b>${avis[i].utilisateur}:</b> ${avis[i].commentaire} <br>`;
+    }
+    pieceElement.appendChild(avisElement);
+}
 
-// fonction ajouter un avis pour un produit
 export function ajoutListenerEnvoyerAvis() {
     const formulaireAvis = document.querySelector(".formulaire-avis");
     formulaireAvis.addEventListener("submit", function (event) {
@@ -41,7 +32,7 @@ export function ajoutListenerEnvoyerAvis() {
         // Création de l’objet du nouvel avis.
         const avis = {
             pieceId: parseInt(event.target.querySelector("[name=piece-id]").value),
-            utilisateur: event.target.querySelector("[name=utilisateur").value,
+            utilisateur: event.target.querySelector("[name=utilisateur]").value,
             commentaire: event.target.querySelector("[name=commentaire]").value,
             nbEtoiles: parseInt(event.target.querySelector("[name=nbEtoiles]").value)
         };
@@ -54,4 +45,39 @@ export function ajoutListenerEnvoyerAvis() {
             body: chargeUtile
         });
     });
+
+}
+
+export async function afficherGraphiqueAvis() {
+    // Calcul du nombre total de commentaires par quantité d'étoiles attribuées
+    const avis = await fetch("http://localhost:8081/avis").then(avis => avis.json());
+    const nb_commentaires = [0, 0, 0, 0, 0];
+
+    for (let commentaire of avis) {
+        nb_commentaires[commentaire.nbEtoiles - 1]++;
+    }
+    // Légende qui s'affichera sur la gauche à côté de la barre horizontale
+    const labels = ["5", "4", "3", "2", "1"];
+    // Données et personnalisation du graphique
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: "Étoiles attribuées",
+            data: nb_commentaires.reverse(),
+            backgroundColor: "rgba(255, 230, 0, 1)", // couleur jaune
+        }],
+    };
+    // Objet de configuration final
+    const config = {
+        type: "bar",
+        data: data,
+        options: {
+            indexAxis: "y",
+        },
+    };
+    // Rendu du graphique dans l'élément canvas
+    const graphiqueAvis = new Chart(
+        document.querySelector("#graphique-avis"),
+        config,
+    );
 }

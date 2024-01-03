@@ -4,17 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<title>Les Bonnes Pièces</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
+	<script src="node_modules/chart.js/dist/chart.umd.js" defer></script>
 	<script type="module" src="pieces.js"></script>
 </head>
 
 <body>
 	<header>
-		<img src="images/iot.png" alt="LOGO">
-		<h1>HomeIOT</h1>
+		<img src="images/logo-les-bonnes-pieces.png" alt="LOGO">
+		<h1>Les Bonnes Pièces</h1>
 	</header>
 	<main>
 		<!-- Menu de recherche -->
@@ -27,14 +25,9 @@
 			<button class="btn-decroissant">Trier par prix décroissant</button>
 			<br>
 			<button class="btn-nodesc">Filtrer les pièces sans description</button>
-			<!-- Range de prix -->
-			<div>
-				<h3>Prix maximum</h3>
-				<input type="range" id="prix" name="prix" min="0" max="60" value="60" step="5" />
-				<label for="volume">Prix (Entre 0€ et 60€)</label>
-				<div>Jusqu'a <span class="prixValue">60</span> €</div>
-			</div>
-			<!-- Formulaire déposer un avis -->
+			<br>
+			<p>Prix maximum:</p>
+			<input type="range" name="prix-max" id="prix-max" min="0" max="60" step="5">
 			<h3>Ajouter un avis</h3>
 			<form class="formulaire-avis">
 				Identifiant de la pièce :<br>
@@ -43,21 +36,26 @@
 				<input type="text" name="utilisateur"><br>
 				Avis :<br>
 				<input type="text" name="commentaire"><br>
-				Nombre d'étoile :<br>
+				Note:<br>
 				<input type="number" name="nbEtoiles" min="0" max="5"><br>
-				<br>
 				<button>Envoyer</button>
-				<h3>Donées</h3>
-				<button class="btn-maj">Mettre à jour les pièces</button>
 			</form>
-
+			<h3>Données</h3>
+			<button class="btn-maj">Mettre à jour les pièces</button>
+			<!-- code à ajouter-->
+			<h3>Aperçu des avis</h3>
+			<canvas id="graphique-avis" width="300" height="300"></canvas>
 		</section>
 
 		<!-- Fiches produits -->
 		<section class="fiches">
-			<!-- test affichage manipulation array , sort, splice, map -->
-			<div class="abordables"></div>
-			<div class="disponibles"></div>
+			<!-- Code ajouté -->
+			<div class="abordables">
+
+			</div>
+			<div class="disponibles">
+
+			</div>
 		</section>
 	</main>
 </body>

@@ -1,35 +1,22 @@
-// pour éviter les erreurs il faut importer les fonctions du fichier avis.js
-import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis } from "./avis.js";
-let pieces = window.localStorage.getItem("pieces");
+import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis, afficherGraphiqueAvis } from "./avis.js";
+//Récupération des pièces eventuellement stockées dans le localStorage
+let pieces = window.localStorage.getItem('pieces');
 
-// si il n'y a rien dans le local storage, on applique la fonction de base de récupération des pièces
 if (pieces === null) {
-    // Récupération des pièces depuis l'API avec requette HTTP
+    // Récupération des pièces depuis l'API
     const reponse = await fetch('http://localhost:8081/pieces/');
     pieces = await reponse.json();
-
-    // transformation des pièces en format JSON avec stringify
+    // Transformation des pièces en JSON
     const valeurPieces = JSON.stringify(pieces);
-    // stockage des informations stringifié dans le localStorage, pour y être stockées elle doivent être sous la forme de chaines
-    window.localStorage.setItem("pièces", valeurPieces);
-    // console.log(valeurPieces) // pour vérifier que le localStorage marche
-    // Les clés et les valeurs sont toujours des chaînes de caractères
+    // Stockage des informations dans le localStorage
+    window.localStorage.setItem("pieces", valeurPieces);
 } else {
-    pieces = JSON.parse(pieces) // si il y a des données dans le localStorage, on le reconstruit en mémoire avec JSON.parse
+    pieces = JSON.parse(pieces);
 }
-// dans tous les cas, la variable pièces contiendra les donnéess des pièces
-
-
-
-
 // on appel la fonction pour ajouter le listener au formulaire
 ajoutListenerEnvoyerAvis()
 
-
-
-
 function genererPieces(pieces) {
-
     for (let i = 0; i < pieces.length; i++) {
 
         const article = pieces[i];
@@ -37,7 +24,8 @@ function genererPieces(pieces) {
         const sectionFiches = document.querySelector(".fiches");
         // Création d’une balise dédiée à une pièce automobile
         const pieceElement = document.createElement("article");
-        // Création des balises HTML
+        pieceElement.dataset.id = pieces[i].id
+        // Création des balises 
         const imageElement = document.createElement("img");
         imageElement.src = article.image;
         const nomElement = document.createElement("h2");
@@ -50,29 +38,27 @@ function genererPieces(pieces) {
         descriptionElement.innerText = article.description ?? "Pas de description pour le moment.";
         const stockElement = document.createElement("p");
         stockElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
-        // ajout du bouton avis
+        //Code ajouté
         const avisBouton = document.createElement("button");
-        // permet de récupérer l'élément parent auquel ajouter les avis plus tard
-        avisBouton.dataset.id = article.id
-        // assigner au bouton l'id de l'article
-        avisBouton.dataset.id = article.id
+        avisBouton.dataset.id = article.id;
         avisBouton.textContent = "Afficher les avis";
+
         // On rattache la balise article a la section Fiches
         sectionFiches.appendChild(pieceElement);
-        // On rattache l’image et les autres éléments à pieceElement (la balise article)
         pieceElement.appendChild(imageElement);
         pieceElement.appendChild(nomElement);
         pieceElement.appendChild(prixElement);
         pieceElement.appendChild(categorieElement);
-        //Ajout des autres éléments au DOM pour l'exercice
         pieceElement.appendChild(descriptionElement);
         pieceElement.appendChild(stockElement);
+        //Code aJouté
         pieceElement.appendChild(avisBouton);
+
     }
-    // Ajout de la fonction ajoutListenersAvis
     ajoutListenersAvis();
 }
-genererPieces(pieces); //premier appel de la fonction
+
+genererPieces(pieces);
 
 for (let i = 0; i < pieces.length; i++) {
     const id = pieces[i].id;
@@ -85,10 +71,9 @@ for (let i = 0; i < pieces.length; i++) {
     }
 }
 
-
-
 //gestion des bouttons 
 const boutonTrier = document.querySelector(".btn-trier");
+
 boutonTrier.addEventListener("click", function () {
     const piecesOrdonnees = Array.from(pieces);
     piecesOrdonnees.sort(function (a, b) {
@@ -98,8 +83,8 @@ boutonTrier.addEventListener("click", function () {
     genererPieces(piecesOrdonnees);
 });
 
-
 const boutonFiltrer = document.querySelector(".btn-filtrer");
+
 boutonFiltrer.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
         return piece.prix <= 35;
@@ -108,9 +93,9 @@ boutonFiltrer.addEventListener("click", function () {
     genererPieces(piecesFiltrees);
 });
 
-
-// Boutton et affichage produit par prix décroissant
+//Correction Exercice
 const boutonDecroissant = document.querySelector(".btn-decroissant");
+
 boutonDecroissant.addEventListener("click", function () {
     const piecesOrdonnees = Array.from(pieces);
     piecesOrdonnees.sort(function (a, b) {
@@ -120,8 +105,8 @@ boutonDecroissant.addEventListener("click", function () {
     genererPieces(piecesOrdonnees);
 });
 
-
 const boutonNoDescription = document.querySelector(".btn-nodesc");
+
 boutonNoDescription.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
         return piece.description
@@ -130,75 +115,65 @@ boutonNoDescription.addEventListener("click", function () {
     genererPieces(piecesFiltrees);
 });
 
-
 const noms = pieces.map(piece => piece.nom);
 for (let i = pieces.length - 1; i >= 0; i--) {
     if (pieces[i].prix > 35) {
-        noms.splice(i, 1)
+        noms.splice(i, 1);
     }
 }
 console.log(noms)
-
-
 //Création de l'en-tête
+
 const pElement = document.createElement('p')
-pElement.innerText = "Pièces à moins de 35 €";
+pElement.innerText = "Pièces abordables";
 //Création de la liste
 const abordablesElements = document.createElement('ul');
 //Ajout de chaque nom à la liste
 for (let i = 0; i < noms.length; i++) {
     const nomElement = document.createElement('li');
     nomElement.innerText = noms[i];
-    abordablesElements.appendChild(nomElement)
+    abordablesElements.appendChild(nomElement);
 }
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables')
     .appendChild(pElement)
-    .appendChild(abordablesElements)
+    .appendChild(abordablesElements);
 
-//Code Exercice 
 const nomsDisponibles = pieces.map(piece => piece.nom)
 const prixDisponibles = pieces.map(piece => piece.prix)
+
 for (let i = pieces.length - 1; i >= 0; i--) {
     if (pieces[i].disponibilite === false) {
-        nomsDisponibles.splice(i, 1)
-        prixDisponibles.splice(i, 1)
+        nomsDisponibles.splice(i, 1);
+        prixDisponibles.splice(i, 1);
     }
 }
 
-
 const disponiblesElement = document.createElement('ul');
+
 for (let i = 0; i < nomsDisponibles.length; i++) {
     const nomElement = document.createElement('li');
-    nomElement.innerText = nomsDisponibles[i] + " - " + prixDisponibles[i] + " €";
-    disponiblesElement.appendChild(nomElement)
+    nomElement.innerText = `${nomsDisponibles[i]} - ${prixDisponibles[i]} €`
+    disponiblesElement.appendChild(nomElement);
 }
 
 const pElementDisponible = document.createElement('p')
-pElementDisponible.innerText = "Pièces en stock:";
+pElementDisponible.innerText = "Pièces disponibles:";
 document.querySelector('.disponibles').appendChild(pElementDisponible).appendChild(disponiblesElement)
 
-
-// définir la range de l'input et le span avec la valeur
-const rangeInput = document.getElementById("prix");
-const rangeInputPrixValue = document.querySelector(".prixValue");
-// Ajouter l'évènement à l'input
-// ici méthode de fonction anonyme directement dans l'évènement // autre méthode possible définir la fonction et l'appeler dans les parenthèses du addEventListener
-rangeInput.addEventListener("input", function () {
-    const value = rangeInput.value;
-    rangeInputPrixValue.textContent = value;
+const inputPrixMax = document.querySelector('#prix-max')
+inputPrixMax.addEventListener('input', function () {
     const piecesFiltrees = pieces.filter(function (piece) {
-        return piece.prix <= rangeInput.value
+        return piece.prix <= inputPrixMax.value;
     });
-    // On efface l'écran pour ensuite rappeler la fonction generePieces pour n'avoir que celle que l'on a filtré
     document.querySelector(".fiches").innerHTML = "";
-    // onrégénère la page avec la fonction genererPieces mais filtrée dans la fonction ci dessus
-    genererPieces(piecesFiltrees)
+    genererPieces(piecesFiltrees);
+})
+
+// Ajout du listener pour mettre à jour des données du localStorage
+const boutonMettreAJour = document.querySelector(".btn-maj");
+boutonMettreAJour.addEventListener("click", function () {
+    window.localStorage.removeItem("pieces");
 });
 
-
-// boutton mettre à jour la liste des pièces avec le localStorage
-const bouttonMettreAJour = document.querySelector(".btn-maj")
-bouttonMettreAJour.addEventListener("click", function () {
-    window.localStorage.removeItem("pieces")
-});
+await afficherGraphiqueAvis();
