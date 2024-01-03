@@ -1,11 +1,18 @@
 // pour éviter les erreurs il faut importer les fonctions du fichier avis.js
 import { ajoutListenersAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
 
-// Récupération des pièces depuis l'API
+// Récupération des pièces depuis l'API avec requette HTTP
 const reponse = await fetch('http://localhost:8081/pieces/');
 const pieces = await reponse.json();
 // on appel la fonction pour ajouter le listener au formulaire
 ajoutListenerEnvoyerAvis()
+
+// transformation des pièces en JSON avec stringify
+const valeurPieces = JSON.stringify(pieces);
+// stockage des informations stringifié dans le localStorage, pour y être stockées elle doivent être sous la forme de chaines
+window.localStorage.setItem("pièces", valeurPieces);
+console.log(valeurPieces)
+// Les clés et les valeurs sont toujours des chaînes de caractères
 
 
 function genererPieces(pieces) {
