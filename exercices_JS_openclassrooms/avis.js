@@ -80,4 +80,5 @@ export async function afficherGraphiqueAvis() {
         document.querySelector("#graphique-avis"),
         config,
     );
+
 }
