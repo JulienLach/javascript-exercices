@@ -33,6 +33,8 @@ function rythmeEuclidien(nb, temps) {
     }
     return res;
 }
+console.log("exemple   E(7,11)=  " + rythmeEuclidien(7, 11));
+
 console.log("exemple   E(4,8)=  " + rythmeEuclidien(4, 8));
 console.log("exemple   E(5,13)= " + rythmeEuclidien(5, 13));
 console.log("tresillo  E(3,8)=  " + rythmeEuclidien(3, 8) + " (tango)");
