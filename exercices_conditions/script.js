@@ -35,7 +35,6 @@ Sortie de la boucle : La boucle se termine lorsque genreValid devient true. Cela
 En résumé, la variable genreValid est utilisée pour contrôler la boucle. Elle commence par être false, et la boucle continue jusqu'à ce que l'utilisateur fournisse une entrée valide ("M" ou "F"), à quel moment genreValid est défini à true, et la boucle se termine.
 */
 
-
 // EXERCICE 2
 
 // age = window.prompt("Entrez votre âge : ");
@@ -56,7 +55,6 @@ En résumé, la variable genreValid est utilisée pour contrôler la boucle. Ell
 //     alert("Vous êtes mort.")
 // }
 
-
 //EXERCICE 3
 
 // const montantPanier = parseFloat(prompt("Entrez le total de vos achats : "));
@@ -64,37 +62,33 @@ En résumé, la variable genreValid est utilisée pour contrôler la boucle. Ell
 
 // function calculerMontantARegler(montantPanier) {
 //     let remise;
-  
+
 //     if (montantPanier >= 150) {
 //       remise = montantPanier * 0.15;
-  
+
 //       if (remise > 100) {
 //         remise = 100;
 //       }
 //     } else {
 //       remise = 0;
 //     }
-  
+
 //     return montantPanier - remise;
 //   }
-  
+
 //   alert("Le montant à régler est de " + montantARegler + " €");
 
-
-  //EXERCICE 4
+//EXERCICE 4
 
 // let valeurSaisie = parseInt(window.prompt("Entrez un nombre entier : "));
 
-//     if (valeurSaisie % 2 === 1) {
-//         alert("Le nombre est impair")
-//     }
-//     else {
-//         alert("Le nombre est pair")
-//     }
-
+// if (valeurSaisie % 2 === 1) {
+//   alert("Le nombre est impair");
+// } else {
+//   alert("Le nombre est pair");
+// }
 
 //EXERCICE 5
-
 
 let meteoValeur = window.prompt("Quel temps fait-il ? ");
 let temperatureValeur = window.prompt("Quel température fait-il ? ");
@@ -102,9 +96,15 @@ let temperatureValeur = window.prompt("Quel température fait-il ? ");
 function recommandationVetement(meteoValeur, temperatureValeur) {
   if (meteoValeur == "Il fait beau" && temperatureValeur == "Il fait chaud") {
     alert("Mettez un short");
-  } else if (meteoValeur == "Il pleut" && temperatureValeur == "Il fait chaud") {
+  } else if (
+    meteoValeur == "Il pleut" &&
+    temperatureValeur == "Il fait chaud"
+  ) {
     alert("Prenez un parapluie");
-  } else if (meteoValeur == "Il pleut" && temperatureValeur == "Il fait froid") {
+  } else if (
+    meteoValeur == "Il pleut" &&
+    temperatureValeur == "Il fait froid"
+  ) {
     alert("Prenez un manteau à capuche");
   } else {
     alert("Je ne sais pas quoi vous conseiller.");
@@ -112,7 +112,6 @@ function recommandationVetement(meteoValeur, temperatureValeur) {
 }
 
 recommandationVetement(meteoValeur, temperatureValeur);
-
 
 //EXERCICE 6
 
@@ -137,29 +136,27 @@ recommandationVetement(meteoValeur, temperatureValeur);
 
 // calculIntensiteSeisme(intensiteSeisme);
 
-
 //EXERCICE 7
 
 let valeurPoids = parseFloat(window.prompt("Quel est votre poids en kg ? "));
 let valeurTaille = parseInt(window.prompt("Quel est votre taille en cm ? "));
 
 function calculImc(valeurTaille, valeurPoids) {
-
   let conversionTailleEnMetres = valeurTaille / 100;
-  let valeurIMC = valeurPoids / (conversionTailleEnMetres * conversionTailleEnMetres)
+  let valeurIMC =
+    valeurPoids / (conversionTailleEnMetres * conversionTailleEnMetres);
 
   if (valeurIMC <= 16.5) {
-    alert("Vous êtes en Dénutrition")
+    alert("Vous êtes en Dénutrition");
   } else if (valeurIMC > 16.5 && valeurIMC <= 18.5) {
     alert("Vous êtes maigre");
   } else if (valeurIMC > 18.5 && valeurIMC <= 25) {
-    alert("Vous êtes de corpulance normale")
+    alert("Vous êtes de corpulance normale");
   } else if (valeurIMC > 25 && valeurIMC <= 30) {
     alert("Vous êtes en surpoids");
   } else if (valeurIMC > 30) {
     alert("Vous êtes en obésité");
-  }
-  else {
+  } else {
     alert("Les valeurs saisie ne sont pas correctes");
   }
 }
